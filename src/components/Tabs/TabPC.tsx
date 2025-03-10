@@ -1,6 +1,6 @@
+import React from 'react';
 import useFetchData from '../../hooks/useFetchData';
 import { PCData } from '../../types/PCData';
-
 import styles from './TabPC.module.scss';
 
 interface TabPCProps {
@@ -9,7 +9,7 @@ interface TabPCProps {
 }
 
 const TabPC: React.FC<TabPCProps> = ({ url, title }) => {
-  const { loading, data } = useFetchData<PCData>(url);
+  const { loading, data, error } = useFetchData<PCData>(url);
 
   if (loading) {
     return (
@@ -17,6 +17,10 @@ const TabPC: React.FC<TabPCProps> = ({ url, title }) => {
         <div className={styles['spinner']}></div>
       </div>
     );
+  }
+
+  if (error) {
+    return <div>Ошибка загрузки данных: {error}</div>;
   }
 
   return (

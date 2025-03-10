@@ -9,7 +9,7 @@ interface TabSushilkaProps {
 }
 
 const TabSushilka: React.FC<TabSushilkaProps> = ({ url, title }) => {
-  const { loading, data } = useFetchData<SushilkaData>(url);
+  const { loading, data, error } = useFetchData<SushilkaData>(url);
 
   if (loading) {
     return (
@@ -17,6 +17,10 @@ const TabSushilka: React.FC<TabSushilkaProps> = ({ url, title }) => {
         <div className={styles['spinner']}></div>
       </div>
     );
+  }
+
+  if (error) {
+    return <div>Ошибка загрузки данных: {error}</div>;
   }
 
   return (
