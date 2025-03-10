@@ -12,7 +12,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-
 .list-reset {
   margin: 0;
   padding: 0;
@@ -22,7 +21,6 @@ body {
 .title-reset {
   margin: 0;
 }
-
 
 .btn-reset {
   background-color: transparent;
@@ -41,5 +39,14 @@ body {
   margin: 0 auto;
 }
 
+.swiper-pagination-bullet {
+  width: 14px !important;
+  height: 14px !important;
+  background-color: gray !important;
+  opacity: 0.5 !important;
+}
 
-
+.swiper-pagination-bullet-active {
+  background-color: green !important;
+  opacity: 1 !important;
+}
