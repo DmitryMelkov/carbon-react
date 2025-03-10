@@ -1,0 +1,11 @@
+.tabs {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  &__sub-btns {
+    display: flex;
+    gap: 15px;
+  }
+}

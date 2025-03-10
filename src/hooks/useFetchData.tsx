@@ -6,7 +6,6 @@ const useFetchData = <T, >(url: string) => {
 
   const fetchData = useCallback(async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // Имитация задержки
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);

@@ -6,7 +6,7 @@ import FurnanceCarbonizationCurrent from '../../components/Tabs/FurnanceCarboniz
 import DryerCurrent from '../../components/Tabs/DryerCurrent';
 import BtnDefault from '../../components/BtnDefault/BtnDefault';
 
-const HomePage: React.FC = () => {
+const Home: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,7 +36,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className={styles['home-container']}>
+    <div className={`${styles['tabs__container']}`}>
       {/* Primary Tabs */}
       <Tabs value={primaryTab} onChange={handlePrimaryChange}>
         <Tab label="ПК №1" value="pc1" />
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
       </Tabs>
 
       {/* Sub-Tabs */}
-      <div className={styles['subtabs-container']}>
+      <div className={`${styles['tabs__sub-btns']}`}>
         <BtnDefault isActive={subTab === 'current'} onClick={() => handleSubChange('current')}>
           Текущие параметры
         </BtnDefault>
@@ -61,24 +61,24 @@ const HomePage: React.FC = () => {
         <Route
           path="/pc1/current"
           element={
-            <FurnanceCarbonizationCurrent url="http://169.254.0.156:3002/api/vr1-data" title="Печь Карбонизации №1" />
+            <FurnanceCarbonizationCurrent url="http://localhost:3002/api/vr1-data" title="Печь Карбонизации №1" />
           }
         />
         <Route
           path="/pc2/current"
           element={
-            <FurnanceCarbonizationCurrent url="http://169.254.0.156:3002/api/vr2-data" title="Печь Карбонизации №2" />
+            <FurnanceCarbonizationCurrent url="http://localhost:3002/api/vr2-data" title="Печь Карбонизации №2" />
           }
         />
 
         {/* Dryer1 and Dryer2 */}
         <Route
           path="/dryer1/current"
-          element={<DryerCurrent url="http://169.254.0.156:3002/api/sushilka1-data" title="Сушилка №1" />}
+          element={<DryerCurrent url="http://localhost:3002/api/sushilka1-data" title="Сушилка №1" />}
         />
         <Route
           path="/dryer2/current"
-          element={<DryerCurrent url="http://169.254.0.156:3002/api/sushilka2-data" title="Сушилка №2" />}
+          element={<DryerCurrent url="http://localhost:3002/api/sushilka2-data" title="Сушилка №2" />}
         />
 
         {/* Mnemoscheme Placeholder */}
@@ -91,4 +91,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default Home;
