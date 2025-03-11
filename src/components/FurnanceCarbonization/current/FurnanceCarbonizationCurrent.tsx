@@ -5,15 +5,15 @@ import type SwiperType from 'swiper';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import useFetchData from '../../hooks/useFetchData';
-import TableComponent from '../../ui/TableParams/TableParams';
+import useFetchData from '../../../hooks/useFetchData';
+import TableComponent from '../../../ui/TableParams/TableParams';
 import styles from './FurnanceCarbonizationCurrent.module.scss';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import BtnDefault from '../../ui/BtnDefault/BtnDefault';
-import { FurnanceCarbonizationData, transformIM, transformLevels } from '../../types/FurnanceCarbonizationTypes';
-import TableHeader from '../../ui/Tableheader/TableHeader';
-import useFurnaceCarbonizationMode from '../../hooks/useFurnaceCarbonizationMode';
-import Loader from '../../ui/loader/Loader';
+import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
+import { FurnanceCarbonizationData, transformIM, transformLevels } from '../../../types/FurnanceCarbonizationTypes';
+import TableHeader from '../../../ui/Tableheader/TableHeader';
+import useFurnaceCarbonizationMode from '../../../hooks/useFurnaceCarbonizationMode';
+import Loader from '../../../ui/loader/Loader';
 
 interface FurnanceCarbonizationCurrentProps {
   url: string;
@@ -25,7 +25,7 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
   const furnaceMode = useFurnaceCarbonizationMode(data);
   const swiperRef = useRef<SwiperType | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const totalSlides = 5; // Увеличиваем количество слайдов
+  const totalSlides = 5;
 
   const handleSlideChange = (swiper: SwiperType) => {
     setCurrentIndex(swiper.activeIndex);

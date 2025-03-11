@@ -1,5 +1,6 @@
 import React from 'react';
-import FurnanceCarbonizationCurrent from '../../components/FurnanceCarbonization/FurnanceCarbonizationCurrent';
+import FurnanceCarbonizationCurrent from '../../components/FurnanceCarbonization/current/FurnanceCarbonizationCurrent';
+
 
 interface FurnanceCarbonizationCurrentPageProps {
   url: string;

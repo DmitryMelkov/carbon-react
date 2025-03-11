@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../FurnanceCarbonizationMnemo.module.scss';
+import styles from '../mnemo/FurnanceCarbonizationMnemo.module.scss';
 
 interface MnemoGifsProps {
   isGorelkaPowerGreaterThan5: boolean;

@@ -16,10 +16,10 @@ const useFetchData = <T, >(url: string) => {
       setTimeout(() => {
         setData(result);
         setLoading(false);
-      }, 2000); // Задержка 2 секунды
+      }, 1000); // Задержка 2 секунды
     } catch (error) {
       console.error('Error fetching data:', error);
-      setLoading(false); // Убедитесь, что загрузка завершается даже при ошибке
+      setLoading(false); 
     }
   }, [url]);
 

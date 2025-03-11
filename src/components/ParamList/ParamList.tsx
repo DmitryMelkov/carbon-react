@@ -1,6 +1,6 @@
 import React from 'react';
 import ParamIndicator from '../ParamIndicator/ParamIndicator';
-import styles from '../FurnanceCarbonization/FurnanceCarbonizationMnemo.module.scss';
+import styles from '../FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo.module.scss';
 
 interface Param {
   keyName: string;

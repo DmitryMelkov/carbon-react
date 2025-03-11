@@ -1,5 +1,5 @@
 import React from 'react';
-import FurnanceCarbonizationMnemo from '../../components/FurnanceCarbonization/FurnanceCarbonizationMnemo';
+import FurnanceCarbonizationMnemo from '../../components/FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo';
 
 interface FurnanceCarbonizationMnemoPageProps {
   url: string;

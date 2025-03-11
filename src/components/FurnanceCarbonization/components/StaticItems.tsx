@@ -1,4 +1,4 @@
-import styles from '../FurnanceCarbonizationMnemo.module.scss'
+import styles from '../mnemo/FurnanceCarbonizationMnemo.module.scss'
 
 const StaticItems = () => {
   return (

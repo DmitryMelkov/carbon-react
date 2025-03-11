@@ -1,12 +1,19 @@
-.tabs {
+.home {
+  padding: 20px;
   &__container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px #0000001a;
+  }
+  &__intro {
     padding: 15px;
   }
   &__sub-btns {
     display: flex;
     gap: 15px;
+    margin-bottom: 10px;
   }
 }

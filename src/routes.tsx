@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import FurnanceCarbonizationCurrentPage from './pages/FurnanceCarbonizationCurrentPage/FurnanceCarbonizationCurrentPage';
-import DryerCurrentPage from './pages/DryerCurrentPage/DryerCurrentPage';
 import FurnanceCarbonizationMnemoPage from './pages/FurnanceCarbonizationCurrentPage/FurnanceCarbonizationMnemoPage';
+import DryerCurrentPage from './pages/DryerCurrentPage/DryerCurrentPage';
+
 
 const AppRoutes: React.FC = () => {
   return (
