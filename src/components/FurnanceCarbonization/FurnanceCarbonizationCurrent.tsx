@@ -6,11 +6,12 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import useFetchData from '../../hooks/useFetchData';
-import TableComponent from '../TableParams/TableParams';
+import TableComponent from '../../ui/TableParams/TableParams';
 import styles from './FurnanceCarbonizationCurrent.module.scss';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import BtnDefault from '../BtnDefault/BtnDefault';
+import BtnDefault from '../../ui/BtnDefault/BtnDefault';
 import { FurnanceCarbonizationData } from '../../types/FurnanceCarbonizationTypes';
+import TableHeader from '../../ui/Tableheader/TableHeader';
 
 interface FurnanceCarbonizationCurrentProps {
   url: string;
@@ -41,7 +42,7 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
 
   return (
     <div className={styles['tab-pc']}>
-      <h2 className={`${styles['tab-pc__content-title']} title-reset`}>{title}</h2>
+      <TableHeader title={title} />
 
       <div className={styles['tab-swiper']}>
         <div className={styles['tab-swiper__box']}>

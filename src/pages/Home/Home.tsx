@@ -1,11 +1,11 @@
 import React from 'react';
-import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Tabs, Tab } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Home.module.scss';
-import FurnanceCarbonizationCurrent from '../../components/FurnanceCarbonization/FurnanceCarbonizationCurrent';
-import DryerCurrent from '../../components/Dryer/DryerCurrent';
-import BtnDefault from '../../components/BtnDefault/BtnDefault';
+import AppRoutes from '../../routes';
+import BtnDefault from '../../ui/BtnDefault/BtnDefault';
+import { MdConstruction, MdTune } from 'react-icons/md';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -52,6 +52,9 @@ const Home: React.FC = () => {
           '& .MuiTabs-indicator': {
             backgroundColor: 'green', // Цвет индикатора
           },
+          '& .MuiTab-root.Mui-selected': {
+            color: 'green',
+          },
         }}
       >
         <Tab label="ПК №1" value="pc1" />
@@ -62,10 +65,20 @@ const Home: React.FC = () => {
 
       {/* Sub-Tabs */}
       <div className={`${styles['tabs__sub-btns']}`}>
-        <BtnDefault isActive={subTab === 'current'} onClick={() => handleSubChange('current')}>
+        <BtnDefault
+          isActive={subTab === 'current'}
+          onClick={() => handleSubChange('current')}
+          icon={<MdTune />}
+          iconSize="20px"
+        >
           Текущие параметры
         </BtnDefault>
-        <BtnDefault isActive={subTab === 'mnemo'} onClick={() => handleSubChange('mnemo')}>
+        <BtnDefault
+          isActive={subTab === 'mnemo'}
+          onClick={() => handleSubChange('mnemo')}
+          icon={<MdConstruction />}
+          iconSize="20px"
+        >
           Мнемосхема
         </BtnDefault>
       </div>
@@ -79,30 +92,7 @@ const Home: React.FC = () => {
           exit={{ opacity: 0, x: 100 }}
           transition={{ duration: 0.5 }}
         >
-          <Routes location={location}>
-            <Route
-              path="/pc1/current"
-              element={
-                <FurnanceCarbonizationCurrent url="http://localhost:3002/api/vr1-data" title="Печь Карбонизации №1" />
-              }
-            />
-            <Route
-              path="/pc2/current"
-              element={
-                <FurnanceCarbonizationCurrent url="http://localhost:3002/api/vr2-data" title="Печь Карбонизации №2" />
-              }
-            />
-            <Route
-              path="/dryer1/current"
-              element={<DryerCurrent url="http://localhost:3002/api/sushilka1-data" title="Сушилка №1" />}
-            />
-            <Route
-              path="/dryer2/current"
-              element={<DryerCurrent url="http://localhost:3002/api/sushilka2-data" title="Сушилка №2" />}
-            />
-            <Route path="/:object/mnemo" element={<div>Мнемосхема {location.pathname.split('/')[1]}</div>} />
-            <Route path="*" element={<Navigate to="/pc1/current" replace />} />
-          </Routes>
+          <AppRoutes />
         </motion.div>
       </AnimatePresence>
     </div>

@@ -6,11 +6,12 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import useFetchData from '../../hooks/useFetchData';
-import TableComponent from '../TableParams/TableParams';
+import TableComponent from '../../ui/TableParams/TableParams';
 import styles from './DryerCurrent.module.scss';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import BtnDefault from '../BtnDefault/BtnDefault';
+import BtnDefault from '../../ui/BtnDefault/BtnDefault';
 import { DryerData } from '../../types/dryerDataTypes';
+import TableHeader from '../../ui/Tableheader/TableHeader';
 
 interface DryerCurrentProps {
   url: string;
@@ -21,7 +22,7 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
   const { loading, data } = useFetchData<DryerData>(url);
   const swiperRef = useRef<SwiperType | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const totalSlides = 3;
+  const totalSlides = 2;
 
   const handleSlideChange = (swiper: SwiperType) => {
     setCurrentIndex(swiper.activeIndex);
@@ -40,8 +41,9 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
   }
 
   return (
-    <div className={styles['tab-sushilka']}>
-      <h2 className={`${styles['tab-sushilka__content-title']} title-reset`}>{title}</h2>
+    <div className={styles['dryer-current']}>
+
+      <TableHeader title={title} />
 
       <div className={styles['tab-swiper']}>
         <div className={styles['tab-swiper__box']}>
@@ -53,8 +55,10 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
               dynamicBullets: true,
             }}
             className={styles['tab-swiper__slider']}
-            slidesPerView={1}
+            slidesPerView={2}
+            slidesPerGroup={1}
             spaceBetween={30}
+            allowTouchMove={false}
             onSlideChange={handleSlideChange}
           >
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
