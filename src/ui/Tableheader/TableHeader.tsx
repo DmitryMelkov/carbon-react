@@ -3,9 +3,10 @@ import styles from './TableHeader.module.scss';
 
 interface TableHeaderProps {
   title: string;
+  furnaceMode?: string | null;
 }
 
-const TableHeader: React.FC<TableHeaderProps> = ({ title }) => {
+const TableHeader: React.FC<TableHeaderProps> = ({ title, furnaceMode }) => {
   const [currentDate, setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState('');
 
@@ -34,6 +35,9 @@ const TableHeader: React.FC<TableHeaderProps> = ({ title }) => {
       <div className={`${styles['table-header__box']}`}>
         <div className={`${styles['table-header__date']}`}>{currentDate}</div>
         <div className={`${styles['table-header__time']}`}>{currentTime}</div>
+      </div>
+      <div className={`${styles['table-header__subtitle']}`}>
+        {furnaceMode && <span className={`${styles['table-header__subtitle-span']}`}>Режим: {furnaceMode}</span>}
       </div>
     </div>
   );

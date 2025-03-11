@@ -2,17 +2,28 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import FurnanceCarbonizationCurrentPage from './pages/FurnanceCarbonizationCurrentPage/FurnanceCarbonizationCurrentPage';
 import DryerCurrentPage from './pages/DryerCurrentPage/DryerCurrentPage';
+import FurnanceCarbonizationMnemoPage from './pages/FurnanceCarbonizationCurrentPage/FurnanceCarbonizationMnemoPage';
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route
         path="/pc1/current"
-        element={<FurnanceCarbonizationCurrentPage url="http://localhost:3002/api/vr1-data" title="Печь Карбонизации №1" />}
+        element={
+          <FurnanceCarbonizationCurrentPage url="http://localhost:3002/api/vr1-data" title="Печь Карбонизации №1" />
+        }
+      />
+      <Route
+        path="/pc1/mnemo"
+        element={
+          <FurnanceCarbonizationMnemoPage url="http://localhost:3002/api/vr1-data" title="Печь Карбонизации №1" />
+        }
       />
       <Route
         path="/pc2/current"
-        element={<FurnanceCarbonizationCurrentPage url="http://localhost:3002/api/vr2-data" title="Печь Карбонизации №2" />}
+        element={
+          <FurnanceCarbonizationCurrentPage url="http://localhost:3002/api/vr2-data" title="Печь Карбонизации №2" />
+        }
       />
       <Route
         path="/dryer1/current"

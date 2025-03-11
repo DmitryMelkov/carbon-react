@@ -12,6 +12,9 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import BtnDefault from '../../ui/BtnDefault/BtnDefault';
 import { FurnanceCarbonizationData } from '../../types/FurnanceCarbonizationTypes';
 import TableHeader from '../../ui/Tableheader/TableHeader';
+import useFurnaceCarbonizationMode from '../../hooks/useFurnaceCarbonizationMode';
+import Loader from '../../ui/loader/Loader';
+
 
 interface FurnanceCarbonizationCurrentProps {
   url: string;
@@ -20,6 +23,8 @@ interface FurnanceCarbonizationCurrentProps {
 
 const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> = ({ url, title }) => {
   const { loading, data } = useFetchData<FurnanceCarbonizationData>(url);
+  // Используем кастомный хук для определения режима работы печи
+  const furnaceMode = useFurnaceCarbonizationMode(data);
   const swiperRef = useRef<SwiperType | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const totalSlides = 3;
@@ -29,11 +34,7 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
   };
 
   if (loading) {
-    return (
-      <div className={styles['spinnerContainer']}>
-        <div className={styles['spinner']}></div>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (!data) {
@@ -42,7 +43,8 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
 
   return (
     <div className={styles['tab-pc']}>
-      <TableHeader title={title} />
+      {/* Передаем режим работы печи в TableHeader */}
+      <TableHeader title={title} furnaceMode={furnaceMode} />
 
       <div className={styles['tab-swiper']}>
         <div className={styles['tab-swiper__box']}>

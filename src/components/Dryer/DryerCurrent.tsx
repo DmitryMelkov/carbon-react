@@ -12,6 +12,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import BtnDefault from '../../ui/BtnDefault/BtnDefault';
 import { DryerData } from '../../types/dryerDataTypes';
 import TableHeader from '../../ui/Tableheader/TableHeader';
+import Loader from '../../ui/loader/Loader';
 
 interface DryerCurrentProps {
   url: string;
@@ -29,11 +30,7 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
   };
 
   if (loading) {
-    return (
-      <div className={styles['spinnerContainer']}>
-        <div className={styles['spinner']}></div>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (!data) {

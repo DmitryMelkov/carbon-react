@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const useFetchData = <T, >(url: string) => {
+const useFetchData = <T,>(url: string) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<T | null>(null);
 
@@ -11,11 +11,15 @@ const useFetchData = <T, >(url: string) => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const result: T = await response.json();
-      setData(result);
+
+      // Искусственная задержка в 2 секунды перед обновлением данных
+      setTimeout(() => {
+        setData(result);
+        setLoading(false);
+      }, 2000); // Задержка 2 секунды
     } catch (error) {
       console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
+      setLoading(false); // Убедитесь, что загрузка завершается даже при ошибке
     }
   }, [url]);
 
