@@ -7,15 +7,16 @@ interface ParamIndicatorProps {
   value?: number | null;
   unit: string;
   tooltipText?: string;
+  tooltipsEnabled: boolean;
 }
 
-const ParamIndicator: React.FC<ParamIndicatorProps> = ({ value, unit, tooltipText }) => {
+const ParamIndicator: React.FC<ParamIndicatorProps> = ({ value, unit, tooltipText, tooltipsEnabled }) => {
   return (
     <Tooltip
       title={<span style={{ whiteSpace: 'pre-line', fontSize: '13px' }}>{tooltipText || ''}</span>}
       placement="top"
       arrow
-      disableHoverListener={!tooltipText}
+      disableHoverListener={!tooltipsEnabled || !tooltipText}
     >
       <span className={`${styles['mnemo__param-text']}`}>
         {value !== undefined && value !== null ? `${value} ${unit}` : '—'}

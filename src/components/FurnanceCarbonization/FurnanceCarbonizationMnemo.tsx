@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useFetchData from '../../hooks/useFetchData';
 import useFurnaceCarbonizationMode from '../../hooks/useFurnaceCarbonizationMode';
 import { FurnanceCarbonizationData } from '../../types/FurnanceCarbonizationTypes';
@@ -9,6 +9,8 @@ import MnemoGifs from './components/MnemoGifs';
 import styles from './FurnanceCarbonizationMnemo.module.scss';
 import ParamList from '../ParamList/ParamList';
 import { getFurnanceCarbonizationParams } from '../../utils/furnanceCarbonizationParams';
+import BtnDefault from '../../ui/BtnDefault/BtnDefault';
+import { MdScience, MdVisibility } from 'react-icons/md';
 
 interface FurnanceCarbonizationMnemoProps {
   url: string;
@@ -18,6 +20,11 @@ interface FurnanceCarbonizationMnemoProps {
 const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({ url, title }) => {
   const { loading, data } = useFetchData<FurnanceCarbonizationData>(url);
   const furnaceMode = useFurnaceCarbonizationMode(data);
+  const [tooltipsEnabled, setTooltipsEnabled] = useState(true);
+
+  const toggleTooltips = () => {
+    setTooltipsEnabled((prev) => !prev);
+  };
 
   if (loading) {
     return <Loader />;
@@ -50,18 +57,21 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
 
       <div className={`${styles['mnemo']}`}>
         <img className={`${styles['mnemo__img']}`} src="/img/pech-vr.jpg" alt="Котел" />
-
+        {/* кнопки тултипы/лаборатория */}
+        <div className={`${styles['mnemo__param-box--btns']}`}>
+          <BtnDefault onClick={toggleTooltips} icon={<MdVisibility />} className={styles['first-btn']}>
+            {tooltipsEnabled ? 'Выкл. тултипы' : 'Вкл. тултипы'}
+          </BtnDefault>
+          <BtnDefault icon={<MdScience />}>Для лаборатории</BtnDefault>
+        </div>
         {/* Статические надписи */}
         <StaticItems />
-
         {/* Параметры */}
-        <ParamList params={params} />
-
+        <ParamList params={params} tooltipsEnabled={tooltipsEnabled} />
         {/* горелка, вентиляторы, топка */}
         <MnemoGifs isGorelkaPowerGreaterThan5={isGorelkaPowerGreaterThan5} isVacuumNegative={isVacuumNegative} />
       </div>
 
-      <span className={`${styles['span']}`}>{url}</span>
     </div>
   );
 };

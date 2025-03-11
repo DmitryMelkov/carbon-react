@@ -9,6 +9,7 @@ interface BtnDefaultProps {
   borderRadius?: string;
   disabled?: boolean;
   iconSize?: string;
+  className?: string;
 }
 
 const BtnDefault: React.FC<BtnDefaultProps> = ({
@@ -19,11 +20,12 @@ const BtnDefault: React.FC<BtnDefaultProps> = ({
   borderRadius,
   disabled = false,
   iconSize,
+  className,
 }) => {
   return (
     <button
-      className={`${styles['btn-default']} ${isActive ? styles['active'] : ''} ${disabled ? styles['disabled'] : ''}`}
-      onClick={disabled ? undefined : onClick} // Используйте undefined вместо null
+      className={`${styles['btn-default']} ${isActive ? styles['active'] : ''} ${disabled ? styles['disabled'] : ''} ${className}`}
+      onClick={disabled ? undefined : onClick}
       style={{ borderRadius }}
       disabled={disabled}
     >

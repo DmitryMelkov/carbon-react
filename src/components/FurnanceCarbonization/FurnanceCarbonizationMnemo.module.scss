@@ -124,6 +124,9 @@
     top: 0;
     left: 0;
     z-index: 1;
+    .first-btn {
+      border-right: none;
+    }
   }
   &-box--btn-doc {
     position: absolute;
@@ -137,14 +140,22 @@
     left: 17%;
     z-index: 1;
   }
-}
+  &:hover {
+    background-color: green; /* Измените фон при наведении */
+    .mnemo__param-text {
+      color: white;
+    }
+  }
 
-.mnemo__param:hover {
-  background-color: green; /* Измените фон при наведении */
-}
-
-.mnemo__param:hover .mnemo__param-text {
-  color: white;
+  &.no-hover {
+    &:hover {
+      background-color: white; /* Отключаем изменение фона */
+      cursor: auto;
+      .mnemo__param-text {
+        color: green; /* Отключаем изменение цвета текста */
+      }
+    }
+  }
 }
 
 .blink-warning {
