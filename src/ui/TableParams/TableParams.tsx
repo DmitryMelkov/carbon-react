@@ -2,10 +2,11 @@ import styles from './TableParams.module.scss';
 
 interface TableComponentProps {
   title: string; // Заголовок таблицы
+  unit?: string;  //единицы измерения
   data: Record<string, number | string> | null; // Данные таблицы, где ключ - строка, а значение - число или строка
 }
 
-const TableComponent: React.FC<TableComponentProps> = ({ title, data }) => {
+const TableComponent: React.FC<TableComponentProps> = ({ title, data, unit }) => {
   return (
     <>
       <table className={styles['table']}>
@@ -13,7 +14,7 @@ const TableComponent: React.FC<TableComponentProps> = ({ title, data }) => {
         <thead className={styles['table__thead']}>
           <tr className={styles['table__tr']}>
             <th className={`${styles['table__th']} ${styles['table__left']}`}>Наименование</th>
-            <th className={`${styles['table__th']}`}>Значение</th>
+            <th className={`${styles['table__th']}`}>Значение {unit}</th>
           </tr>
         </thead>
         <tbody className={styles['table__tbody']}>
@@ -21,7 +22,7 @@ const TableComponent: React.FC<TableComponentProps> = ({ title, data }) => {
             Object.entries(data).map(([key, value]) => (
               <tr className={styles['table__tr']} key={key}>
                 <td className={`${styles['table__td']} ${styles['table__left']}`}>{key}</td>
-                <td className={`${styles['table__td']} ${styles['table__right']}`}>{value} °C</td>
+                <td className={`${styles['table__td']} ${styles['table__right']}`}>{value}</td>
               </tr>
             ))
           ) : (
