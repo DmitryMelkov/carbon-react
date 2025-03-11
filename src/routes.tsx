@@ -25,6 +25,12 @@ const AppRoutes: React.FC = () => {
           <FurnanceCarbonizationCurrentPage url="http://localhost:3002/api/vr2-data" title="Печь Карбонизации №2" />
         }
       />
+        <Route
+        path="/pc2/mnemo"
+        element={
+          <FurnanceCarbonizationMnemoPage url="http://localhost:3002/api/vr2-data" title="Печь Карбонизации №2" />
+        }
+      />
       <Route
         path="/dryer1/current"
         element={<DryerCurrentPage url="http://localhost:3002/api/sushilka1-data" title="Сушилка №1" />}

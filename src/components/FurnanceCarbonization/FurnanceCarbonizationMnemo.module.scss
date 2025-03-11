@@ -92,11 +92,19 @@
   padding: 1px;
   background-color: white;
 
+  padding: 2px;
+  margin: 0;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  transition: background-color 0.3s ease-in-out;
+
   &-text {
     font-size: 18px;
     line-height: 16px;
     color: green;
     font-weight: 600;
+    transition: color 0.3s ease-in-out;
   }
 
   &-descr {
@@ -129,6 +137,14 @@
     left: 17%;
     z-index: 1;
   }
+}
+
+.mnemo__param:hover {
+  background-color: green; /* Измените фон при наведении */
+}
+
+.mnemo__param:hover .mnemo__param-text {
+  color: white;
 }
 
 .blink-warning {
@@ -541,7 +557,8 @@
       top: 33.3%;
       right: -55px;
     }
-    &-4, &-5 {
+    &-4,
+    &-5 {
       left: 18.2%;
       & img {
         width: 31px;
@@ -614,5 +631,4 @@
       left: 35.65%;
     }
   }
-
 }
