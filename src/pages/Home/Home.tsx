@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Tabs, Tab } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
+// import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Home.module.scss';
 import AppRoutes from '../../routes';
 import BtnDefault from '../../ui/BtnDefault/BtnDefault';
@@ -87,17 +87,19 @@ const Home: React.FC = () => {
           </div>
 
           {/* Routes */}
-          <AnimatePresence mode="wait">
+          {/* <AnimatePresence mode="wait">
             <motion.div
-              key={location.pathname}
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}
-              transition={{ duration: 0.5 }}
+              key={`${location.key}-${location.pathname}`} // Уникальный ключ
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
             >
               <AppRoutes />
             </motion.div>
-          </AnimatePresence>
+          </AnimatePresence> */}
+
+          <AppRoutes />
         </div>
       </div>
     </div>

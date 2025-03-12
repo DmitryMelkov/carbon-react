@@ -30,6 +30,9 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
     return <Loader />;
   }
 
+  console.log(data);
+
+
   if (!data) {
     return <div>Ошибка загрузки данных</div>;
   }

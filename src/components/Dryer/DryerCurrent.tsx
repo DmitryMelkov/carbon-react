@@ -33,13 +33,14 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
     return <Loader />;
   }
 
+  console.log(data);
+
   if (!data) {
     return <div>Ошибка загрузки данных</div>;
   }
 
   return (
     <div className={styles['dryer-current']}>
-
       <TableHeader title={title} />
 
       <div className={styles['tab-swiper']}>

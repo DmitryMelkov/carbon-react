@@ -35,6 +35,9 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
     return <Loader />;
   }
 
+  console.log(data);
+  
+
   if (!data) {
     return <div>Ошибка загрузки данных</div>;
   }
