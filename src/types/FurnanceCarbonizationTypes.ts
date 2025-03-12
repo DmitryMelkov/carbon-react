@@ -3,11 +3,11 @@ export interface Temperatures {
 }
 
 export interface Pressures {
-  [key: string]: string;
+  [key: string]: number;
 }
 
 export interface Vacuums {
-  [key: string]: string;
+  [key: string]: number;
 }
 
 export interface Gorelka {

@@ -1,13 +1,14 @@
 import React from 'react';
 import FurnanceCarbonizationCurrent from '../../components/FurnanceCarbonization/current/FurnanceCarbonizationCurrent';
+import { useParams } from 'react-router-dom';
 
 
-interface FurnanceCarbonizationCurrentPageProps {
-  url: string;
-  title: string;
-}
+const FurnanceCarbonizationCurrentPage: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const url = `vr${id}-data`;
+  const title = `Печь Карбонизации №${id}`;
 
-const FurnanceCarbonizationCurrentPage: React.FC<FurnanceCarbonizationCurrentPageProps> = ({ url, title }) => {
+
   return (
     <>
       <FurnanceCarbonizationCurrent url={url} title={title} />

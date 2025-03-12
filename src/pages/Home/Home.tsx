@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Tabs, Tab } from '@mui/material';
-// import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Home.module.scss';
 import AppRoutes from '../../routes';
 import BtnDefault from '../../ui/BtnDefault/BtnDefault';
@@ -13,11 +13,11 @@ const Home: React.FC = () => {
 
   // Determine the active primary tab
   const primaryTab = (() => {
-    if (location.pathname.startsWith('/pc1')) return 'pc1';
-    if (location.pathname.startsWith('/pc2')) return 'pc2';
-    if (location.pathname.startsWith('/dryer1')) return 'dryer1';
-    if (location.pathname.startsWith('/dryer2')) return 'dryer2';
-    return 'pc1'; // Default to PC1
+    if (location.pathname.startsWith('/pc/1')) return 'pc/1';
+    if (location.pathname.startsWith('/pc/2')) return 'pc/2';
+    if (location.pathname.startsWith('/dryer/1')) return 'dryer/1';
+    if (location.pathname.startsWith('/dryer/2')) return 'dryer/2';
+    return 'pc/1'; // Default to PC1
   })();
 
   // Determine the active sub-tab
@@ -59,10 +59,10 @@ const Home: React.FC = () => {
             },
           }}
         >
-          <Tab label="ПК №1" value="pc1" />
-          <Tab label="ПК №2" value="pc2" />
-          <Tab label="Сушилка №1" value="dryer1" />
-          <Tab label="Сушилка №2" value="dryer2" />
+          <Tab label="ПК №1" value="pc/1" />
+          <Tab label="ПК №2" value="pc/2" />
+          <Tab label="Сушилка №1" value="dryer/1" />
+          <Tab label="Сушилка №2" value="dryer/2" />
         </Tabs>
 
         <div className={`${styles['home__intro']}`}>
@@ -87,7 +87,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* Routes */}
-          {/* <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait">
             <motion.div
               key={`${location.key}-${location.pathname}`} // Уникальный ключ
               initial={{ opacity: 0 }}
@@ -97,9 +97,7 @@ const Home: React.FC = () => {
             >
               <AppRoutes />
             </motion.div>
-          </AnimatePresence> */}
-
-          <AppRoutes />
+          </AnimatePresence>
         </div>
       </div>
     </div>

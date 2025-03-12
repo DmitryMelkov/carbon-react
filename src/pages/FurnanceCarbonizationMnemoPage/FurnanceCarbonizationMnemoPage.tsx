@@ -1,15 +1,21 @@
 import React from 'react';
+import { useParams, Navigate } from 'react-router-dom';
 import FurnanceCarbonizationMnemo from '../../components/FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo';
 
-interface FurnanceCarbonizationMnemoPageProps {
-  url: string;
-  title: string;
-}
+const FurnanceCarbonizationMnemoPage: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const url = `vr${id}-data`;
+  const title = `Печь Карбонизации №${id}`;
 
-const FurnanceCarbonizationMnemoPage: React.FC<FurnanceCarbonizationMnemoPageProps> = ({ url, title }) => {
+
+  // Проверяем, что id существует
+  if (!id) {
+    return <Navigate to="/error" />; // Перенаправляем на страницу ошибки или показываем сообщение
+  }
+
   return (
     <>
-      <FurnanceCarbonizationMnemo url={url} title={title} />
+      <FurnanceCarbonizationMnemo url={url} title={title} id={id} />
     </>
   );
 };
