@@ -2,7 +2,7 @@ import React from 'react';
 import { Tooltip } from '@mui/material';
 import styles from '../FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo.module.scss';
 import { useCheckParameter } from '../../hooks/useChrckParameter';
-import { Recommendation } from '../../types/Recommendations';
+import { Recommendation } from '../../types/recommendations';
 
 interface ParamIndicatorProps {
   keyName: string;

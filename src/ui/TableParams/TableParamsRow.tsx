@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TableParams.module.scss';
 import { useCheckParameter } from '../../hooks/useChrckParameter';
-import { Recommendation } from '../../types/Recommendations';
+import { Recommendation } from '../../types/recommendations';
 
 interface TableParamsRowProps {
   keyName: string;

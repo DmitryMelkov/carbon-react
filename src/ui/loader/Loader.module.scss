@@ -51,7 +51,7 @@
 
 .loaderText {
   margin-top: 20px;
-  @include mixins.text-style(24px, null, 600, vars.$hulk);
+  @include mixins.text-style(24px, 24px, 600, vars.$hulk);
 }
 
 /* Анимация для орбит */

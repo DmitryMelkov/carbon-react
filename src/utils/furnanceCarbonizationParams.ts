@@ -1,4 +1,4 @@
-import { FurnanceCarbonizationData } from '../types/FurnanceCarbonizationTypes';
+import { FurnanceCarbonizationData } from '../types/furnanceCarbonizationTypes';
 import { furnanceCarbonizationsTooltips } from './tooltipTexts';
 
 interface Param {

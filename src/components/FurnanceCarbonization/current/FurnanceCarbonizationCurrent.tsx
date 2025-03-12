@@ -9,7 +9,7 @@ import TableComponent from '../../../ui/TableParams/TableParams';
 import styles from './FurnanceCarbonizationCurrent.module.scss';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
-import { FurnanceCarbonizationData, transformIM, transformLevels } from '../../../types/FurnanceCarbonizationTypes';
+import { FurnanceCarbonizationData, transformIM, transformLevels } from '../../../types/furnanceCarbonizationTypes';
 import TableHeader from '../../../ui/Tableheader/TableHeader';
 import useFurnaceCarbonizationMode from '../../../hooks/useFurnaceCarbonizationMode';
 import Loader from '../../../ui/loader/Loader';
@@ -72,10 +72,19 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
               <TableComponent title="Горелка" data={data.gorelka || null} furnaceData={data} />
             </SwiperSlide>
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Уровни" unit="мм" data={data.levels ? transformLevels(data.levels) : null} furnaceData={data} />
+              <TableComponent
+                title="Уровни"
+                unit="мм"
+                data={data.levels ? transformLevels(data.levels) : null}
+                furnaceData={data}
+              />
             </SwiperSlide>
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Индикаторы состояния" data={data.im ? transformIM(data.im) : null} furnaceData={data} />
+              <TableComponent
+                title="Индикаторы состояния"
+                data={data.im ? transformIM(data.im) : null}
+                furnaceData={data}
+              />
             </SwiperSlide>
           </Swiper>
           <div className={styles['tab-swiper__navigation']}>

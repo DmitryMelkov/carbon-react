@@ -1,5 +1,5 @@
 import React from 'react';
-import FurnanceCarbonizationCurrent from '../../components/FurnanceCarbonization/current/FurnanceCarbonizationCurrent';
+import FurnanceCarbonizationCurrent from '../../components/FurnanceCarbonization/Current/FurnanceCarbonizationCurrent';
 import { useParams } from 'react-router-dom';
 
 

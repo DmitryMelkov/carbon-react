@@ -1,7 +1,7 @@
 // FurnanceCarbonizationMnemo.tsx
 import React, { useState } from 'react';
 import useFurnaceCarbonizationMode from '../../../hooks/useFurnaceCarbonizationMode';
-import { FurnanceCarbonizationData } from '../../../types/FurnanceCarbonizationTypes';
+import { FurnanceCarbonizationData } from '../../../types/furnanceCarbonizationTypes';
 import Loader from '../../../ui/loader/Loader';
 import TableHeader from '../../../ui/Tableheader/TableHeader';
 import StaticItems from '../components/StaticItems';
@@ -12,7 +12,7 @@ import { getFurnanceCarbonizationParams } from '../../../utils/furnanceCarboniza
 import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
 import { MdScience, MdVisibility } from 'react-icons/md';
 import { useFetchData } from '../../../hooks/useFetchData';
-import KranItems from '../components/KranItems'; 
+import KranItems from '../components/KranItems';
 
 interface FurnanceCarbonizationMnemoProps {
   url: string;

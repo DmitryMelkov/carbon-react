@@ -1,12 +1,8 @@
 // hooks/useCheckParameter.ts
 import { useEffect, useState } from 'react';
-import { Recommendation } from '../types/Recommendations';
+import { Recommendation } from '../types/recommendations';
 
-export const useCheckParameter = (
-  value: number,
-  recommendation: Recommendation,
-  mode?: string
-): boolean => {
+export const useCheckParameter = (value: number, recommendation: Recommendation, mode?: string): boolean => {
   const [isOutOfRange, setIsOutOfRange] = useState(false);
 
   useEffect(() => {
@@ -23,9 +19,7 @@ export const useCheckParameter = (
       max = recommendation.max;
     }
 
-    setIsOutOfRange(
-      (min !== undefined && value < min) || (max !== undefined && value > max)
-    );
+    setIsOutOfRange((min !== undefined && value < min) || (max !== undefined && value > max));
   }, [value, recommendation, mode]);
 
   return isOutOfRange;

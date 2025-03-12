@@ -1,9 +1,14 @@
 import React, { useMemo } from 'react';
 import styles from './TableParams.module.scss';
-import { recommendedLevels, recommendedPressures, recommendedTemperatures, recommendedVacuums } from '../../utils/furnanceCarbonizationRecomendedValues';
+import {
+  recommendedLevels,
+  recommendedPressures,
+  recommendedTemperatures,
+  recommendedVacuums,
+} from '../../utils/furnanceCarbonizationRecomendedValues';
 import TableParamsRow from './TableParamsRow';
 import useFurnaceCarbonizationMode from '../../hooks/useFurnaceCarbonizationMode';
-import { FurnanceCarbonizationData } from '../../types/FurnanceCarbonizationTypes';
+import { FurnanceCarbonizationData } from '../../types/furnanceCarbonizationTypes';
 
 interface TableComponentProps {
   title: string;
@@ -13,7 +18,7 @@ interface TableComponentProps {
 }
 
 const TableComponent: React.FC<TableComponentProps> = ({ title, data, unit, furnaceData }) => {
-  const entries = useMemo(() => data ? Object.entries(data) : [], [data]);
+  const entries = useMemo(() => (data ? Object.entries(data) : []), [data]);
   const furnaceMode = useFurnaceCarbonizationMode(furnaceData);
 
   return (

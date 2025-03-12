@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FurnanceCarbonizationData } from '../types/FurnanceCarbonizationTypes';
+import { FurnanceCarbonizationData } from '../types/furnanceCarbonizationTypes';
 
 // Кастомный хук для определения режима работы печи
 const useFurnaceCarbonizationMode = (data: FurnanceCarbonizationData | null): string | null => {
