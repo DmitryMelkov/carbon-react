@@ -1,3 +1,4 @@
+// FurnanceCarbonizationMnemo.tsx
 import React, { useState } from 'react';
 import useFurnaceCarbonizationMode from '../../../hooks/useFurnaceCarbonizationMode';
 import { FurnanceCarbonizationData } from '../../../types/FurnanceCarbonizationTypes';
@@ -11,6 +12,7 @@ import { getFurnanceCarbonizationParams } from '../../../utils/furnanceCarboniza
 import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
 import { MdScience, MdVisibility } from 'react-icons/md';
 import { useFetchData } from '../../../hooks/useFetchData';
+import KranItems from '../components/KranItems'; 
 
 interface FurnanceCarbonizationMnemoProps {
   url: string;
@@ -67,6 +69,8 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
         <ParamList params={params} tooltipsEnabled={tooltipsEnabled} />
         {/* горелка, вентиляторы, топка */}
         <MnemoGifs isGorelkaPowerGreaterThan5={isGorelkaPowerGreaterThan5} isVacuumNegative={isVacuumNegative} />
+        {/* Краны */}
+        <KranItems data={data.im || {}} />
       </div>
     </div>
   );
