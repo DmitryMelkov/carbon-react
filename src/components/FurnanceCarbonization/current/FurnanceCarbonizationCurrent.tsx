@@ -35,12 +35,12 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
     return <Loader />;
   }
 
-  console.log(data);
-  
-
   if (!data) {
+    console.error('Ошибка загрузки данных'); // Лучше использовать console.error для ошибок
     return <div>Ошибка загрузки данных</div>;
   }
+
+  console.log('Загруженные данные:', data);
 
   return (
     <div className={styles['tab-pc']}>
