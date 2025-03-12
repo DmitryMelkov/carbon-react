@@ -25,7 +25,7 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
   const furnaceMode = useFurnaceCarbonizationMode(data);
   const swiperRef = useRef<SwiperType | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const totalSlides = 5;
+  const totalSlides = 6;
 
   const handleSlideChange = (swiper: SwiperType) => {
     setCurrentIndex(swiper.activeIndex);
@@ -60,22 +60,22 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
             onSlideChange={handleSlideChange}
           >
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Температуры" unit="°C" data={data.temperatures || null} />
+              <TableComponent title="Температуры" unit="°C" data={data.temperatures || null} furnaceData={data} />
             </SwiperSlide>
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Давления" unit="кгс/м2" data={data.pressures || null} />
+              <TableComponent title="Давления" unit="кгс/м2" data={data.pressures || null} furnaceData={data} />
             </SwiperSlide>
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Разрежения" unit="кгс/см2" data={data.vacuums || null} />
+              <TableComponent title="Разрежения" unit="кгс/см2" data={data.vacuums || null} furnaceData={data} />
             </SwiperSlide>
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Горелка" data={data.gorelka || null} />
+              <TableComponent title="Горелка" data={data.gorelka || null} furnaceData={data} />
             </SwiperSlide>
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Уровни" unit="мм" data={data.levels ? transformLevels(data.levels) : null} />
+              <TableComponent title="Уровни" unit="мм" data={data.levels ? transformLevels(data.levels) : null} furnaceData={data} />
             </SwiperSlide>
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Индикаторы состояния" data={data.im ? transformIM(data.im) : null} />
+              <TableComponent title="Индикаторы состояния" data={data.im ? transformIM(data.im) : null} furnaceData={data} />
             </SwiperSlide>
           </Swiper>
           <div className={styles['tab-swiper__navigation']}>

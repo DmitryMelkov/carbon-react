@@ -67,3 +67,13 @@
     }
   }
 }
+
+.out-of-range {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { color: red; }
+  50% { color: green; }
+  100% { color: red; }
+}

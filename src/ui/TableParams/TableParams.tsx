@@ -1,12 +1,21 @@
+import React, { useMemo } from 'react';
 import styles from './TableParams.module.scss';
+import { recommendedLevels, recommendedPressures, recommendedTemperatures, recommendedVacuums } from '../../utils/furnanceCarbonizationRecomendedValues';
+import TableParamsRow from './TableParamsRow';
+import useFurnaceCarbonizationMode from '../../hooks/useFurnaceCarbonizationMode';
+import { FurnanceCarbonizationData } from '../../types/FurnanceCarbonizationTypes';
 
 interface TableComponentProps {
-  title: string; // Заголовок таблицы
-  unit?: string;  //единицы измерения
-  data: Record<string, number | string> | null; // Данные таблицы, где ключ - строка, а значение - число или строка
+  title: string;
+  unit?: string;
+  data: Record<string, number | string> | null;
+  furnaceData: FurnanceCarbonizationData | null;
 }
 
-const TableComponent: React.FC<TableComponentProps> = ({ title, data, unit }) => {
+const TableComponent: React.FC<TableComponentProps> = ({ title, data, unit, furnaceData }) => {
+  const entries = useMemo(() => data ? Object.entries(data) : [], [data]);
+  const furnaceMode = useFurnaceCarbonizationMode(furnaceData);
+
   return (
     <>
       <table className={styles['table']}>
@@ -18,13 +27,29 @@ const TableComponent: React.FC<TableComponentProps> = ({ title, data, unit }) =>
           </tr>
         </thead>
         <tbody className={styles['table__tbody']}>
-          {data ? (
-            Object.entries(data).map(([key, value]) => (
-              <tr className={styles['table__tr']} key={key}>
-                <td className={`${styles['table__td']} ${styles['table__left']}`}>{key}</td>
-                <td className={`${styles['table__td']} ${styles['table__right']}`}>{value}</td>
-              </tr>
-            ))
+          {entries.length > 0 ? (
+            entries.map(([key, value]) => {
+              let recommendation = {};
+              if (unit === '°C') {
+                recommendation = recommendedTemperatures[key] || {};
+              } else if (unit === 'мм') {
+                recommendation = recommendedLevels[key] || {};
+              } else if (unit === 'кгс/см²') {
+                recommendation = recommendedPressures[key] || {};
+              } else if (unit === 'кгс/м²') {
+                recommendation = recommendedVacuums[key] || {};
+              }
+
+              return (
+                <TableParamsRow
+                  key={key}
+                  keyName={key}
+                  value={value}
+                  recommendation={recommendation}
+                  mode={furnaceMode ?? undefined}
+                />
+              );
+            })
           ) : (
             <tr className={styles['table__tr']}>
               <td colSpan={2}>No data available</td>

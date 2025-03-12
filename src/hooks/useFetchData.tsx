@@ -7,7 +7,9 @@ export function useFetchData<T>(url: string): { loading: boolean; data: T | null
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:3002/api/${url}`);
+      // const response = await fetch(`http://localhost:3002/api/${url}`);
+      const response = await fetch(`http://169.254.0.156:3002/api/${url}`);
+
       const result = await response.json();
       setData(result);
       setLoading(false);
