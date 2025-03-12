@@ -5,7 +5,6 @@ import type SwiperType from 'swiper';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import useFetchData from '../../../hooks/useFetchData';
 import TableComponent from '../../../ui/TableParams/TableParams';
 import styles from './FurnanceCarbonizationCurrent.module.scss';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -14,6 +13,7 @@ import { FurnanceCarbonizationData, transformIM, transformLevels } from '../../.
 import TableHeader from '../../../ui/Tableheader/TableHeader';
 import useFurnaceCarbonizationMode from '../../../hooks/useFurnaceCarbonizationMode';
 import Loader from '../../../ui/loader/Loader';
+import { useFetchData } from '../../../hooks/useFetchData';
 
 interface FurnanceCarbonizationCurrentProps {
   url: string;
@@ -36,11 +36,8 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
   }
 
   if (!data) {
-    console.error('Ошибка загрузки данных'); // Лучше использовать console.error для ошибок
     return <div>Ошибка загрузки данных</div>;
   }
-
-  console.log('Загруженные данные:', data);
 
   return (
     <div className={styles['tab-pc']}>

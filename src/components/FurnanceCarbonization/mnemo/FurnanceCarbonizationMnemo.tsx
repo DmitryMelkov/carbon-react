@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useFetchData from '../../../hooks/useFetchData';
 import useFurnaceCarbonizationMode from '../../../hooks/useFurnaceCarbonizationMode';
 import { FurnanceCarbonizationData } from '../../../types/FurnanceCarbonizationTypes';
 import Loader from '../../../ui/loader/Loader';
@@ -11,6 +10,7 @@ import ParamList from '../../ParamList/ParamList';
 import { getFurnanceCarbonizationParams } from '../../../utils/furnanceCarbonizationParams';
 import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
 import { MdScience, MdVisibility } from 'react-icons/md';
+import { useFetchData } from '../../../hooks/useFetchData';
 
 interface FurnanceCarbonizationMnemoProps {
   url: string;
@@ -29,9 +29,6 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
   if (loading) {
     return <Loader />;
   }
-
-  console.log(data);
-
 
   if (!data) {
     return <div>Ошибка загрузки данных</div>;

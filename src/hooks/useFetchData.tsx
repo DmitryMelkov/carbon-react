@@ -1,32 +1,30 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const useFetchData = <T,>(url: string) => {
+export function useFetchData<T>(url: string): { loading: boolean; data: T | null; error: boolean } {
   const [loading, setLoading] = useState<boolean>(true);
-  const [data, setData] = useState<T | null>(null); // Use generic type T
+  const [data, setData] = useState<T | null>(null);
+  const [error, setError] = useState<boolean>(false);
 
   const fetchData = useCallback(async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulating network delay
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      const response = await fetch(`${url}`);
       const result = await response.json();
       setData(result);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
       setLoading(false);
+    } catch (error) {
+      console.error('Ошибка при загрузке данных:', error);
+      setLoading(false);
+      setError(true);
     }
   }, [url]);
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 5000);
-    return () => clearInterval(interval);
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 5000);
+    return () => clearInterval(intervalId);
   }, [fetchData]);
 
-  return { loading, data };
-};
-
-export default useFetchData;
+  return { loading, data, error };
+}

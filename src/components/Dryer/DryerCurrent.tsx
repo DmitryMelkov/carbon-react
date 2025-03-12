@@ -5,7 +5,6 @@ import type SwiperType from 'swiper';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import useFetchData from '../../hooks/useFetchData';
 import TableComponent from '../../ui/TableParams/TableParams';
 import styles from './DryerCurrent.module.scss';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -13,6 +12,7 @@ import BtnDefault from '../../ui/BtnDefault/BtnDefault';
 import { DryerData } from '../../types/dryerDataTypes';
 import TableHeader from '../../ui/Tableheader/TableHeader';
 import Loader from '../../ui/loader/Loader';
+import { useFetchData } from '../../hooks/useFetchData';
 
 interface DryerCurrentProps {
   url: string;
@@ -32,8 +32,6 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
   if (loading) {
     return <Loader />;
   }
-
-  console.log(data);
 
   if (!data) {
     return <div>Ошибка загрузки данных</div>;
