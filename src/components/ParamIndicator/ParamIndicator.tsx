@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip } from '@mui/material';
 import styles from '../FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo.module.scss';
-import { useCheckParameter } from '../../hooks/useChrckParameter';
+import { useParameterCheck } from '../../hooks/useCheckParameter';
 import { Recommendation } from '../../types/recommendations';
 
 interface ParamIndicatorProps {
@@ -22,30 +22,9 @@ const ParamIndicator: React.FC<ParamIndicatorProps> = ({
   recommendation,
   furnaceMode,
 }) => {
-  // Используем хук для проверки выхода за пределы
-  const isOutOfRange = useCheckParameter(value || 0, recommendation, furnaceMode);
+  const { isOutOfRange, recommendationText } = useParameterCheck(value || 0, recommendation, furnaceMode);
 
-  // Генерация текста для тултипа
-  const getRecommendationText = () => {
-    if (recommendation.modes) {
-      return Object.entries(recommendation.modes)
-        .map(([mode, { min, max }]) => {
-          const parts = [];
-          if (min !== undefined) parts.push(`не менее ${min}`);
-          if (max !== undefined) parts.push(`не более ${max}`);
-          return `${mode}: ${parts.join(', ')}`;
-        })
-        .join('\n');
-    }
-
-    const parts = [];
-    if (recommendation.min !== undefined) parts.push(`не менее ${recommendation.min}`);
-    if (recommendation.max !== undefined) parts.push(`не более ${recommendation.max}`);
-    return parts.join(' и ');
-  };
-
-  // Объединяем текст тултипа с рекомендациями
-  const fullTooltipText = `${tooltipText || ''}\n\nРекомендуемые значения:\n${getRecommendationText()}`;
+  const fullTooltipText = `${tooltipText || ''}\n\nРекомендуемые значения:\n${recommendationText}`;
 
   return (
     <Tooltip

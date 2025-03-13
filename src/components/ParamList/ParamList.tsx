@@ -1,12 +1,7 @@
 import React from 'react';
 import ParamIndicator from '../ParamIndicator/ParamIndicator';
 import styles from '../FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo.module.scss';
-import {
-  recommendedLevels,
-  recommendedPressures,
-  recommendedTemperatures,
-  recommendedVacuums,
-} from '../../utils/furnanceCarbonizationRecomendedValues';
+import { getRecommendation } from '../../utils/getRecomendationParams';
 
 interface Param {
   keyName: string;
@@ -19,23 +14,14 @@ interface Param {
 interface ParamListProps {
   params: Param[];
   tooltipsEnabled: boolean;
-  furnaceMode?: string; // Добавляем режим работы печи
+  furnaceMode?: string;
 }
 
 const ParamList: React.FC<ParamListProps> = ({ params, tooltipsEnabled, furnaceMode }) => {
   return (
     <>
       {params.map((param) => {
-        let recommendation = {};
-        if (param.unit === '°C') {
-          recommendation = recommendedTemperatures[param.keyName] || {};
-        } else if (param.unit === 'мм') {
-          recommendation = recommendedLevels[param.keyName] || {};
-        } else if (param.unit === 'кгс/см²') {
-          recommendation = recommendedPressures[param.keyName] || {};
-        } else if (param.unit === 'кгс/м²') {
-          recommendation = recommendedVacuums[param.keyName] || {};
-        }
+       const recommendation = getRecommendation(param.keyName, param.unit);
 
         return (
           <div

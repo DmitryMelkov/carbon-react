@@ -1,14 +1,9 @@
 import React, { useMemo } from 'react';
 import styles from './TableParams.module.scss';
-import {
-  recommendedLevels,
-  recommendedPressures,
-  recommendedTemperatures,
-  recommendedVacuums,
-} from '../../utils/furnanceCarbonizationRecomendedValues';
 import TableParamsRow from './TableParamsRow';
 import useFurnaceCarbonizationMode from '../../hooks/useFurnaceCarbonizationMode';
 import { FurnanceCarbonizationData } from '../../types/furnanceCarbonizationTypes';
+import { getRecommendation } from '../../utils/getRecomendationParams';
 
 interface TableComponentProps {
   title: string;
@@ -34,16 +29,7 @@ const TableComponent: React.FC<TableComponentProps> = ({ title, data, unit, furn
         <tbody className={styles['table__tbody']}>
           {entries.length > 0 ? (
             entries.map(([key, value]) => {
-              let recommendation = {};
-              if (unit === '°C') {
-                recommendation = recommendedTemperatures[key] || {};
-              } else if (unit === 'мм') {
-                recommendation = recommendedLevels[key] || {};
-              } else if (unit === 'кгс/см²') {
-                recommendation = recommendedPressures[key] || {};
-              } else if (unit === 'кгс/м²') {
-                recommendation = recommendedVacuums[key] || {};
-              }
+              const recommendation = getRecommendation(key, unit ?? '');
 
               return (
                 <TableParamsRow

@@ -1,4 +1,3 @@
-// FurnanceCarbonizationMnemo.tsx
 import React, { useState } from 'react';
 import useFurnaceCarbonizationMode from '../../../hooks/useFurnaceCarbonizationMode';
 import { FurnanceCarbonizationData } from '../../../types/furnanceCarbonizationTypes';
@@ -72,6 +71,9 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
         {/* Краны */}
         <KranItems data={data.im || {}} />
       </div>
+
+      {/* Таблица с алармами */}
+
     </div>
   );
 };
