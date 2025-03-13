@@ -1,9 +1,11 @@
 export interface Recommendation {
-  min?: number;
-  max?: number;
+  min?: number; // Минимальное значение
+  max?: number; // Максимальное значение
+  unit?: string; // Единица измерения
   modes?: {
-    [mode: string]: Recommendation;
+    [mode: string]: Recommendation; // Режимы работы (опционально)
   };
 }
 
+// Тип Recommendations остается без изменений
 export type Recommendations = Record<string, Recommendation>;

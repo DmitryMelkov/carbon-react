@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip } from '@mui/material';
 import styles from '../FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo.module.scss';
-import { useParameterCheck } from '../../hooks/useCheckParameter';
+import { checkParameter } from '../../utils/parameterCheck';
 import { Recommendation } from '../../types/recommendations';
 
 interface ParamIndicatorProps {
@@ -22,7 +22,7 @@ const ParamIndicator: React.FC<ParamIndicatorProps> = ({
   recommendation,
   furnaceMode,
 }) => {
-  const { isOutOfRange, recommendationText } = useParameterCheck(value || 0, recommendation, furnaceMode);
+  const { isOutOfRange, recommendationText } = checkParameter(value || 0, recommendation, furnaceMode);
 
   const fullTooltipText = `${tooltipText || ''}\n\nРекомендуемые значения:\n${recommendationText}`;
 

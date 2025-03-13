@@ -29,7 +29,7 @@ const TableComponent: React.FC<TableComponentProps> = ({ title, data, unit, furn
         <tbody className={styles['table__tbody']}>
           {entries.length > 0 ? (
             entries.map(([key, value]) => {
-              const recommendation = getRecommendation(key, unit ?? '');
+              const { recommendation } = getRecommendation(key, unit ?? '');
 
               return (
                 <TableParamsRow

@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './TableParams.module.scss';
-
 import { Recommendation } from '../../types/recommendations';
-import { useParameterCheck } from '../../hooks/useCheckParameter';
+import { checkParameter } from '../../utils/parameterCheck'; 
 
 interface TableParamsRowProps {
   keyName: string;
@@ -12,7 +11,7 @@ interface TableParamsRowProps {
 }
 
 const TableParamsRow: React.FC<TableParamsRowProps> = ({ keyName, value, recommendation, mode = '' }) => {
-  const { isOutOfRange } = useParameterCheck(typeof value === 'number' ? value : 0, recommendation, mode);
+  const { isOutOfRange } = checkParameter(typeof value === 'number' ? value : 0, recommendation, mode);
 
   return (
     <tr className={styles['table__tr']}>

@@ -21,7 +21,7 @@ const ParamList: React.FC<ParamListProps> = ({ params, tooltipsEnabled, furnaceM
   return (
     <>
       {params.map((param) => {
-       const recommendation = getRecommendation(param.keyName, param.unit);
+      const recommendation = getRecommendation(param.keyName, param.unit).recommendation;
 
         return (
           <div
