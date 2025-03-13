@@ -14,7 +14,7 @@ interface TableComponentProps {
   title: string;
   unit?: string;
   data: Record<string, number | string> | null;
-  furnaceData: FurnanceCarbonizationData | null;
+  furnaceData?: FurnanceCarbonizationData | null;
 }
 
 const TableComponent: React.FC<TableComponentProps> = ({ title, data, unit, furnaceData }) => {

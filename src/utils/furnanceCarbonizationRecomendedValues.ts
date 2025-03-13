@@ -1,5 +1,4 @@
-// utils/furnanceCarbonizationRecomendedValues.ts
-import { Recommendations } from '../types/recommendations';
+import { Recommendations } from "../types/recommendations";
 
 export const recommendedTemperatures: Recommendations = {
   '1-СК': { min: 550, max: 800 },

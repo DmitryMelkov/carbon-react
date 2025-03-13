@@ -64,7 +64,7 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
               <TableComponent title="Разрежения" data={data.vacuums || null} />
             </SwiperSlide>
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Горелка" data={data.gorelka || null} />
+              <TableComponent title="Горелка" data={data.gorelka || null}  />
             </SwiperSlide>
           </Swiper>
           <div className={styles['tab-swiper__navigation']}>
