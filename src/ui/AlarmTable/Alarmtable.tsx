@@ -38,26 +38,26 @@ const AlarmTable: React.FC<AlarmTableProps> = ({ data, furnaceData }) => {
     .filter((entry) => entry.isOutOfRange);
 
   return (
-    <table className={styles['alarm-table']}>
-      <thead>
-        <tr>
-          <th>Наименование</th>
-          <th>Значение</th>
+    <table className={styles['table']}>
+      <thead className={styles['table__thead']}>
+        <tr className={styles['table__tr']}>
+          <th className={`${styles['table__th']} ${styles['table__left']}`}>Наименование</th>
+          <th className={`${styles['table__th']}`}>Значение</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className={styles['table__tbody']}>
         {filteredEntries.length > 0 ? (
           filteredEntries.map(({ key, value, unit }) => (
-            <tr key={key} className={`${styles['alarm-row']} ${styles['out-of-range']}`}>
-              <td>{key}</td>
-              <td>
+            <tr key={key} className={`${styles['table__tr']}`}>
+              <td className={`${styles['table__td']} ${styles['table__left']} ${styles['out-of-range']}`}>{key}</td>
+              <td className={`${styles['table__td']} ${styles['table__right']} ${styles['out-of-range']}`}>
                 {value} {unit}
               </td>
             </tr>
           ))
         ) : (
-          <tr>
-            <td colSpan={2}>Все параметры в норме</td>
+          <tr className={styles['table__tr']}>
+            <td colSpan={2} className={styles['table__td']}>Все параметры в норме</td>
           </tr>
         )}
       </tbody>

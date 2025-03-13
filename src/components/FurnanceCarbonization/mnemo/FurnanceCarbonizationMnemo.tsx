@@ -64,6 +64,10 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
 
       <div className={`${styles['mnemo']}`}>
         <img className={`${styles['mnemo__img']}`} src="/img/pech-vr.jpg" alt="Котел" />
+        {/* Таблица алармов */}
+        <div className={styles['alarm-table']}>
+          <AlarmTable data={alarmData} furnaceData={data} />
+        </div>
         {/* кнопки тултипы/лаборатория */}
         <div className={`${styles['mnemo__param-box--btns']}`}>
           <BtnDefault onClick={toggleTooltips} icon={<MdVisibility />} className={styles['first-btn']}>
@@ -79,11 +83,6 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
         <MnemoGifs isGorelkaPowerGreaterThan5={isGorelkaPowerGreaterThan5} isVacuumNegative={isVacuumNegative} />
         {/* Краны */}
         <KranItems data={data.im || {}} />
-
-        {/* Таблица алармов */}
-        <div className={styles['alarm-table-container']}>
-          <AlarmTable data={alarmData} furnaceData={data} />
-        </div>
       </div>
     </div>
   );

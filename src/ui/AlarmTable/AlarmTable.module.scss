@@ -1,51 +1,76 @@
-.alarm-table {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  max-width: 400px;
-  width: 100%;
+@use '../../styles/mixins' as mixins;
+@use '../../styles/variables' as vars;
+
+.table {
+  min-width: 410px;
+  max-width: 600px;
+  text-align: left;
   border-collapse: collapse;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  box-shadow: 0 0 5px 0 vars.$black;
+  border: 2px solid vars.$hulk;
 
-  thead {
-    background-color: #f5f5f5;
-
-    th {
-      padding: 12px;
-      text-align: left;
-      font-weight: bold;
-      color: #333;
-      border-bottom: 2px solid #ddd;
-    }
+  &__thead {
+    background: linear-gradient(135deg, vars.$hulk, vars.$exhilarating-green);
   }
 
-  tbody {
-    tr {
+  &__title {
+    margin-bottom: 10px;
+    text-align: center;
+    @include mixins.text-style(18px, 25px, 700, vars.$hulk);
+  }
+
+  &__tr {
+    height: 30px;
+  }
+
+  &__th {
+    padding: 5px;
+    text-align: center;
+    @include mixins.text-style(18px, 25px, 700, vars.$white);
+    border: 1px solid vars.$christmas-silver;
+  }
+
+  &__td {
+    letter-spacing: 1px;
+    text-align: center;
+    @include mixins.text-style(16px, 16px, 500, vars.$black);
+    border: 1px solid vars.$christmas-silver;
+  }
+
+  &__left {
+    padding: 10px;
+  }
+
+  &__right {
+    font-weight: 600;
+    color: vars.$hulk;
+  }
+
+  &__body {
+    .table__tr {
+      &:nth-child(odd) {
+        background-color: vars.$white-smoke;
+      }
+
       &:nth-child(even) {
-        background-color: #f9f9f9;
-      }
-
-      &:hover {
-        background-color: #f1f1f1;
-      }
-
-      &.out-of-range {
-        background-color: #ffebee; // Светло-красный фон для значений вне диапазона
-
-        td {
-          color: #c62828; // Красный текст для значений вне диапазона
-        }
-      }
-
-      td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-        color: #555;
+        background-color: vars.$white;
       }
     }
+  }
+}
+
+.out-of-range {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    color: vars.$red;
+  }
+  50% {
+    color: vars.$hulk;
+  }
+  100% {
+    color: vars.$red;
   }
 }

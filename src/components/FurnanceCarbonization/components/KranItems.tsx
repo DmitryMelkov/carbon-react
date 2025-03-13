@@ -11,11 +11,11 @@ interface KranConfig {
   threshold?: number;
 }
 
-interface KranListProps {
+interface KranItemsProps {
   data: Record<string, boolean | number>;
 }
 
-const KranItems: React.FC<KranListProps> = ({ data }) => {
+const KranItems: React.FC<KranItemsProps> = ({ data }) => {
   // Функция для преобразования значений кранов
   const getKranValue = (value: boolean | number): number => {
     if (typeof value === 'boolean') {
