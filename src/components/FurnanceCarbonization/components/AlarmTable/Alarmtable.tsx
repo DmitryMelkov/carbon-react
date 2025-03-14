@@ -21,8 +21,10 @@ const AlarmTable: React.FC<AlarmTableProps> = ({ data, furnaceData }) => {
   const [selectedParameter, setSelectedParameter] = useState<string | null>(null);
 
   const openModal = (parameter: string) => {
-    setSelectedParameter(parameter);
-    setModalIsOpen(true);
+    if (troubleshootingData[parameter]?.data?.troubleshootingItems?.length > 0) {
+      setSelectedParameter(parameter);
+      setModalIsOpen(true);
+    }
   };
 
   const closeModal = () => {
@@ -73,7 +75,10 @@ const AlarmTable: React.FC<AlarmTableProps> = ({ data, furnaceData }) => {
                   {value} {unit}
                 </td>
                 <td className={`${styles['table__td']} ${styles['table__right']}`}>
-                  <BtnDefault onClick={() => openModal(key)}>
+                  <BtnDefault
+                    onClick={() => openModal(key)}
+                    disabled={!troubleshootingData[key]?.data?.troubleshootingItems?.length}
+                  >
                     <FaInfoCircle />
                   </BtnDefault>
                 </td>
