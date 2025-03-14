@@ -1,53 +1,40 @@
-@use '../../../../styles/mixins' as mixins;
-@use '../../../../styles/variables' as vars;
-
 .modal {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  max-width: 780px;
   width: 90%;
+  max-width: 780px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
   outline: none;
-  z-index: 11;
-  & .body {
+
+  &__body {
     margin-top: 10px;
   }
-}
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-}
+  &__title {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 600;
+    color: green;
+    margin-bottom: 30px;
+  }
 
-.troubleshootingTitle {
-  font-size: 22px;
-  line-height: 30px;
-  font-weight: 600;
-  color: green;
-  margin-bottom: 30px;
-}
+  &__description {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: black;
+  }
 
-.troubleshootingDescription {
-  margin-bottom: 10px;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 400;
-  color: black;
-}
+  &__item {
+    margin-bottom: 10px;
+  }
 
-.troubleshootingItem {
-  word-break: break-word;
-  overflow-wrap: break-word;
-
-  &.cause {
+  &__cause {
     cursor: pointer;
     padding: 10px;
     background-color: #f8d7da;
@@ -58,9 +45,13 @@
     &:hover {
       background-color: #f7abb2;
     }
+
+    &_active {
+      background-color: #f7abb2;
+    }
   }
 
-  &.action {
+  &__action {
     padding: 10px;
     margin-left: 40px;
     border: 1px solid green;
@@ -68,8 +59,8 @@
     background-color: rgba(92, 230, 115, 0.363);
     margin-bottom: 10px;
   }
-}
 
-.label {
-  font-weight: 800;
+  &__label {
+    font-weight: 600;
+  }
 }

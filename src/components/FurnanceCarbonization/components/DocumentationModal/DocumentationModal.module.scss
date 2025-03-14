@@ -1,0 +1,56 @@
+.modalContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.accordion {
+  margin-top: 20px;
+
+  &__item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background-color: #f0faf0; // Светло-зеленый фон при наведении
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2e7d32; // Темно-зеленый цвет текста
+  }
+
+  &__content {
+    font-size: 16px;
+    color: #388e3c; // Зеленый цвет текста
+    line-height: 1.5;
+  }
+
+  &__icon {
+    font-size: 24px; // Увеличиваем размер иконки
+    color: #2e7d32; // Темно-зеленый цвет иконки
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    .Mui-expanded & {
+      transform: rotate(180deg); // Поворачиваем иконку при открытии
+      color: #1b5e20; // Более темный зеленый при открытии
+    }
+  }
+}

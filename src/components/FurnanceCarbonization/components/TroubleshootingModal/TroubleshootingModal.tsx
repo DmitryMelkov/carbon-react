@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
-import styles from './TroubleshootingModal.module.scss'; 
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import ModalHeader from '../../../../ui/ModalHeader/ModalHeader';
-
-Modal.setAppElement('#root'); // Указываем корневой элемент приложения
+import styles from './TroubleshootingModal.module.scss';
 
 interface TroubleshootingItem {
   cause: string;
@@ -48,38 +48,49 @@ const TroubleshootingModal: React.FC<TroubleshootingModalProps> = ({ isOpen, onR
 
   return (
     <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      contentLabel={data.title}
-      className={styles.modal}
-      overlayClassName={styles.overlay}
+      open={isOpen}
+      onClose={onRequestClose}
+      aria-labelledby="troubleshooting-modal-title"
+      aria-describedby="troubleshooting-modal-description"
     >
-      {/* Заголовок модального окна */}
-      <ModalHeader title={data.title} onRequestClose={onRequestClose} />
+      <Box className={styles.modal}>
+        {/* Заголовок модального окна */}
+        <ModalHeader title={data.title} onRequestClose={onRequestClose} />
 
-      {/* Основное содержимое модального окна */}
-      <div className={styles.body}>
-        <h3 className={styles.troubleshootingTitle}>Возможные причины и действия по устранению неполадок</h3>
-        <p className={styles.troubleshootingDescription}>Нажмите на причину, чтобы прочитать пошаговые действия</p>
+        {/* Основное содержимое модального окна */}
+        <Box className={styles.modal__body}>
+          <Typography variant="h6" className={styles.modal__title}>
+            Возможные причины и действия по устранению неполадок
+          </Typography>
+          <Typography variant="body1" className={styles.modal__description}>
+            Нажмите на причину, чтобы прочитать пошаговые действия
+          </Typography>
 
-        {/* Список причин и действий */}
-        {data.troubleshootingItems.map((item, index) => (
-          <div key={index}>
-            {/* Причина */}
-            <div className={`${styles.troubleshootingItem} ${styles.cause}`} onClick={() => toggleItem(index)}>
-              <span className={styles.label}>Причина:</span> {item.cause}
-            </div>
+          {/* Список причин и действий */}
+          {data.troubleshootingItems.map((item, index) => (
+            <Box key={index} className={styles.modal__item}>
+              {/* Причина */}
+              <Box
+                className={`${styles.modal__cause} ${activeItemIndex === index ? styles.modal__cause_active : ''}`}
+                onClick={() => toggleItem(index)}
+                sx={{ cursor: 'pointer' }}
+              >
+                <Typography variant="body1">
+                  <span className={styles.modal__label}>Причина:</span> {item.cause}
+                </Typography>
+              </Box>
 
-            {/* Действие (показывается только для активного элемента) */}
-            {activeItemIndex === index && (
-              <div
-                className={`${styles.troubleshootingItem} ${styles.action}`}
-                dangerouslySetInnerHTML={{ __html: formatActionText(item.action) }}
-              />
-            )}
-          </div>
-        ))}
-      </div>
+              {/* Действие (показывается только для активного элемента) */}
+              {activeItemIndex === index && (
+                <Box
+                  className={styles.modal__action}
+                  dangerouslySetInnerHTML={{ __html: formatActionText(item.action) }}
+                />
+              )}
+            </Box>
+          ))}
+        </Box>
+      </Box>
     </Modal>
   );
 };
