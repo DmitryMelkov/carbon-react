@@ -1,0 +1,39 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/variables' as vars;
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid vars.$cerebral-grey;
+
+  .closeButton {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: vars.$stone-cold;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: vars.$cerebral-grey;
+    }
+
+    &:active {
+      background-color: vars.$cerebral-grey;
+    }
+
+    &:focus-visible {
+      background-color: vars.$cerebral-grey;
+    }
+  }
+
+  &__title {
+    @include mixins.text-style(24px, 24px, 600, vars.$stone-cold);
+  }
+}

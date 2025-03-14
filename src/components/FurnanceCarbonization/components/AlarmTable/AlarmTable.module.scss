@@ -1,9 +1,9 @@
-@use '../../styles/mixins' as mixins;
-@use '../../styles/variables' as vars;
+@use '../../../../styles/mixins' as mixins;
+@use '../../../../styles/variables' as vars;
 
 .table {
   min-width: 410px;
-  max-width: 600px;
+  max-width: 410px;
   text-align: left;
   border-collapse: collapse;
   box-shadow: 0 0 5px 0 vars.$black;
@@ -38,10 +38,13 @@
   }
 
   &__left {
-    padding: 10px;
+    padding: 5px 5px;
   }
 
   &__right {
+    padding-left: 5px;
+    padding-right: 5px;
+    white-space: nowrap;
     font-weight: 600;
     color: vars.$hulk;
   }

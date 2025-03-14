@@ -12,7 +12,7 @@ import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
 import { MdScience, MdVisibility } from 'react-icons/md';
 import { useFetchData } from '../../../hooks/useFetchData';
 import KranItems from '../components/KranItems';
-import AlarmTable from '../../../ui/AlarmTable/Alarmtable';
+import AlarmTable from '../components/AlarmTable/Alarmtable';
 
 interface FurnanceCarbonizationMnemoProps {
   url: string;

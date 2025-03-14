@@ -6,8 +6,8 @@ import { useParams } from 'react-router-dom';
 
 const DryerCurrentPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const url = `vr${id}-data`; // Формируем URL на основе id
-  const title = `Печь Карбонизации №${id}`;
+  const url = `sushilka${id}-data`; // Формируем URL на основе id
+  const title = `Сушилка №${id}`;
 
   return (
     <>
