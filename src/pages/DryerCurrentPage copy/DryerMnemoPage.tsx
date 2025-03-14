@@ -1,17 +1,18 @@
 import React from 'react';
-import DryerCurrent from '../../components/Dryer/Current/DryerCurrent';
-import { useParams } from 'react-router-dom';
 
-const DryerCurrentPage: React.FC = () => {
+import { useParams } from 'react-router-dom';
+import DryerMnemo from '../../components/Dryer/Mnemo/DryerMnemo';
+
+const DryerMnemoPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const url = `sushilka${id}-data`; // Формируем URL на основе id
   const title = `Сушилка №${id}`;
 
   return (
     <>
-      <DryerCurrent url={url} title={title} />
+      <DryerMnemo url={url} title={title} />
     </>
   );
 };
 
-export default DryerCurrentPage;
+export default DryerMnemoPage;

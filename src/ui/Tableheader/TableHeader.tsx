@@ -37,10 +37,13 @@ const TableHeader: React.FC<TableHeaderProps> = ({ title, furnaceMode, notisStat
         <div className={`${styles['table-header__date']}`}>{currentDate}</div>
         <div className={`${styles['table-header__time']}`}>{currentTime}</div>
       </div>
-      <div className={`${styles['table-header__subtitle']}`}>
-        Режим:
-        {furnaceMode && <span className={`${styles['table-header__subtitle-span']}`}>{furnaceMode}</span>}
-      </div>
+
+      {furnaceMode && (
+        <div className={`${styles['table-header__subtitle']}`}>
+          Режим:
+          <span className={`${styles['table-header__subtitle-span']}`}>{furnaceMode}</span>
+        </div>
+      )}
 
       {notisStatus && (
         <div className={`${styles['table-header__subtitle']}`}>

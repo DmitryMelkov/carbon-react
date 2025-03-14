@@ -73,13 +73,13 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
 
 
   return (
-    <div>
+    <>
       <div className={`${styles['mnemo-header']}`}>
         <TableHeader title={title} furnaceMode={furnaceMode} />
       </div>
 
       <div className={`${styles['mnemo']}`}>
-        <img className={`${styles['mnemo__img']}`} src="/img/pech-vr.jpg" alt="Котел" />
+        <img className={`${styles['mnemo__img']}`} src="/img/pech-vr.jpg" alt="FurnanceCarbonization" />
         {/* Таблица алармов */}
         <div className={styles['alarm-table']}>
           <AlarmTable data={alarmData} furnaceData={data} />
@@ -117,7 +117,7 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
         {/* Компонент NOTIS */}
         <Notis notisData={notisData} id={id} />
       </div>
-    </div>
+    </>
   );
 };
 

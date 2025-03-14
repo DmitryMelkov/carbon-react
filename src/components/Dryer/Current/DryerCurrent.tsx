@@ -5,14 +5,14 @@ import type SwiperType from 'swiper';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import TableComponent from '../../ui/TableParams/TableParams';
+import TableComponent from '../../../ui/TableParams/TableParams';
 import styles from './DryerCurrent.module.scss';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import BtnDefault from '../../ui/BtnDefault/BtnDefault';
-import { DryerData } from '../../types/dryerDataTypes';
-import TableHeader from '../../ui/Tableheader/TableHeader';
-import Loader from '../../ui/loader/Loader';
-import { useFetchData } from '../../hooks/useFetchData';
+import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
+import { DryerData } from '../../../types/dryerDataTypes';
+import TableHeader from '../../../ui/Tableheader/TableHeader';
+import Loader from '../../../ui/loader/Loader';
+import { useFetchData } from '../../../hooks/useFetchData';
 
 interface DryerCurrentProps {
   url: string;
@@ -64,7 +64,7 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
               <TableComponent title="Разрежения" data={data.vacuums || null} />
             </SwiperSlide>
             <SwiperSlide className={styles['tab-swiper__slider-slide']}>
-              <TableComponent title="Горелка" data={data.gorelka || null}  />
+              <TableComponent title="Горелка" data={data.gorelka || null} />
             </SwiperSlide>
           </Swiper>
           <div className={styles['tab-swiper__navigation']}>
