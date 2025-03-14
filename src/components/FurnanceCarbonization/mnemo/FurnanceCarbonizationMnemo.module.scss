@@ -23,7 +23,7 @@
 
   &__gif {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
 
     &-1 {
       top: 62.7%;
@@ -90,7 +90,7 @@
   position: absolute;
   top: -132px;
   right: -175px;
-  z-index: 0;
+  z-index: 1;
 }
 
 .mnemo__param {
@@ -101,7 +101,7 @@
   margin: 0;
   position: absolute;
   cursor: pointer;
-  z-index: 0;
+  z-index: 1;
   transition: background-color 0.3s ease-in-out;
 
   &-text {
@@ -111,7 +111,7 @@
 
   &-descr {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     @include mixins.text-style(14px, 14px, 600, vars.$hunter-green);
     text-align: center;
   }
@@ -122,7 +122,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: 1;
     .first-btn {
       border-right: none;
     }
@@ -131,13 +131,13 @@
     position: absolute;
     top: 43%;
     left: 17%;
-    z-index: 0;
+    z-index: 1;
   }
   &-box--btn-lab {
     position: absolute;
     top: 39%;
     left: 17%;
-    z-index: 0;
+    z-index: 1;
   }
   &:hover {
     background-color: vars.$hulk;
@@ -177,7 +177,7 @@
 
 .siren-container {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   top: 420px;
   left: 620px;
 }
@@ -247,7 +247,7 @@
 .temper-vody-v-vanne-scrubber {
   bottom: 10%;
   right: 15%;
-  z-index: 0;
+  z-index: 1;
   background-color: transparent;
 }
 
@@ -260,7 +260,7 @@
 .uroven-vanne-scrubber {
   bottom: 10%;
   right: 26%;
-  z-index: 0;
+  z-index: 1;
   background-color: transparent;
 }
 
@@ -416,7 +416,7 @@
 .vanna-skrubbera-text {
   top: 84%;
   right: 19%;
-  z-index: 0;
+  z-index: 1;
 }
 .goriz-vibrotransporter-text {
   max-width: 150px;
@@ -488,8 +488,36 @@
   position: absolute;
   top: 22.9%;
   left: 7.4%;
-  z-index: 0;
+  z-index: 1;
 }
+
+.mnemo__level {
+  &-kotel,
+  &-hvo,
+  &-scrubber {
+    position: absolute;
+  }
+
+  &-kotel {
+    width: 56px;
+    height: 89px;
+    right: 46.4%;
+    bottom: 65.8%;
+  }
+  &-hvo {
+    width: 41px;
+    height: 40px;
+    right: 56.7%;
+    bottom: 14.5%;
+  }
+  &-scrubber {
+    width: 292px;
+    height: 139px;
+    right: 12%;
+    bottom: 2.6%;
+  }
+}
+
 
 @media (max-width: 1280px) {
   .mnemo {

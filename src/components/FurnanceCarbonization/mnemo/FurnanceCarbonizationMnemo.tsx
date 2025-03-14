@@ -14,6 +14,7 @@ import { useFetchData } from '../../../hooks/useFetchData';
 import KranItems from '../components/KranItems';
 import AlarmTable from '../components/AlarmTable/Alarmtable';
 import DocumentationModal from '../components/DocumentationModal/DocumentationModal';
+import LevelItems from '../components/LevelItems';
 
 interface FurnanceCarbonizationMnemoProps {
   url: string;
@@ -102,6 +103,8 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
         <MnemoGifs isGorelkaPowerGreaterThan5={isGorelkaPowerGreaterThan5} isVacuumNegative={isVacuumNegative} />
         {/* Краны */}
         <KranItems data={data.im || {}} />
+        {/* Уровни */}
+        <LevelItems levels={data.levels} />
 
         {/*  модалка документации объектов  */}
         <DocumentationModal isOpen={isDocumentationModalOpen} onRequestClose={closeDocumentationModal} />
