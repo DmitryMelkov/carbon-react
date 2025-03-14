@@ -9,7 +9,12 @@ import TableComponent from '../../../ui/TableParams/TableParams';
 import styles from './FurnanceCarbonizationCurrent.module.scss';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
-import { FurnanceCarbonizationData, transformIM, transformLevels } from '../../../types/furnanceCarbonizationTypes';
+import {
+  FurnanceCarbonizationData,
+  transformIM,
+  transformLevels,
+  NotisData,
+} from '../../../types/furnanceCarbonizationTypes';
 import TableHeader from '../../../ui/Tableheader/TableHeader';
 import useFurnaceCarbonizationMode from '../../../hooks/useFurnaceCarbonizationMode';
 import Loader from '../../../ui/loader/Loader';
@@ -18,10 +23,13 @@ import { useFetchData } from '../../../hooks/useFetchData';
 interface FurnanceCarbonizationCurrentProps {
   url: string;
   title: string;
+  id: string;
 }
 
-const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> = ({ url, title }) => {
+const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> = ({ url, title, id }) => {
   const { loading, data } = useFetchData<FurnanceCarbonizationData>(url);
+  const { loading: notisLoading, data: notisData } = useFetchData<NotisData>(`notis${id}-data`);
+
   const furnaceMode = useFurnaceCarbonizationMode(data);
   const swiperRef = useRef<SwiperType | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -31,17 +39,18 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
     setCurrentIndex(swiper.activeIndex);
   };
 
-  if (loading) {
+  if (loading || notisLoading) {
     return <Loader />;
   }
 
-  if (!data) {
+  if (!data || !notisData) {
     return <div>Ошибка загрузки данных</div>;
   }
 
+
   return (
     <div className={styles['tab-pc']}>
-      <TableHeader title={title} furnaceMode={furnaceMode} />
+      <TableHeader title={title} furnaceMode={furnaceMode} notisStatus={notisData?.status} />
 
       <div className={styles['tab-swiper']}>
         <div className={styles['tab-swiper__box']}>
@@ -85,6 +94,9 @@ const FurnanceCarbonizationCurrent: React.FC<FurnanceCarbonizationCurrentProps> 
                 data={data.im ? transformIM(data.im) : null}
                 furnaceData={data}
               />
+            </SwiperSlide>
+            <SwiperSlide className={styles['tab-swiper__slider-slide']}>
+              <TableComponent title="Дозатор НОТИС" data={notisData.data} furnaceData={data} />
             </SwiperSlide>
           </Swiper>
           <div className={styles['tab-swiper__navigation']}>

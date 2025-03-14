@@ -35,6 +35,17 @@ export interface FurnanceCarbonizationData {
   lastUpdated: string;
 }
 
+export interface NotisData {
+  data: {
+    "Доза (г/мин) НОТИС1": number;
+    "Доза (кг/ч) НОТИС1": number;
+    "Доза (г/мин) НОТИС2": number;
+    "Доза (кг/ч) НОТИС2": number;
+  };
+  status: string;
+  lastUpdated: string;
+}
+
 export const transformLevels = (levels: Levels): Record<string, string> => {
   return Object.entries(levels).reduce((acc, [key, value]) => {
     acc[key] = `${value.value}мм/${value.percent}%`;

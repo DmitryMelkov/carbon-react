@@ -4,9 +4,10 @@ import styles from './TableHeader.module.scss';
 interface TableHeaderProps {
   title: string;
   furnaceMode?: string | null;
+  notisStatus?: string | null;
 }
 
-const TableHeader: React.FC<TableHeaderProps> = ({ title, furnaceMode }) => {
+const TableHeader: React.FC<TableHeaderProps> = ({ title, furnaceMode, notisStatus }) => {
   const [currentDate, setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState('');
 
@@ -37,8 +38,22 @@ const TableHeader: React.FC<TableHeaderProps> = ({ title, furnaceMode }) => {
         <div className={`${styles['table-header__time']}`}>{currentTime}</div>
       </div>
       <div className={`${styles['table-header__subtitle']}`}>
-        {furnaceMode && <span className={`${styles['table-header__subtitle-span']}`}>Режим: {furnaceMode}</span>}
+        Режим:
+        {furnaceMode && <span className={`${styles['table-header__subtitle-span']}`}>{furnaceMode}</span>}
       </div>
+
+      {notisStatus && (
+        <div className={`${styles['table-header__subtitle']}`}>
+          Статус нотиса:
+          {notisStatus === 'working' && (
+            <span className={`${styles['table-header__subtitle-span']}`}>Идет загрузка</span>
+          )}
+          {notisStatus === 'idle' && <span className={`${styles['table-header__subtitle-span']}`}>Загрузки нет</span>}
+          {notisStatus !== 'working' && notisStatus !== 'idle' && (
+            <span className={`${styles['table-header__subtitle-span']}`}>Нет данных</span>
+          )}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useFurnaceCarbonizationMode from '../../../hooks/useFurnaceCarbonizationMode';
-import { FurnanceCarbonizationData } from '../../../types/furnanceCarbonizationTypes';
+import { FurnanceCarbonizationData, NotisData } from '../../../types/furnanceCarbonizationTypes';
 import Loader from '../../../ui/loader/Loader';
 import TableHeader from '../../../ui/Tableheader/TableHeader';
 import StaticItems from '../components/StaticItems';
@@ -15,6 +15,7 @@ import KranItems from '../components/KranItems';
 import AlarmTable from '../components/AlarmTable/Alarmtable';
 import DocumentationModal from '../components/DocumentationModal/DocumentationModal';
 import LevelItems from '../components/LevelItems';
+import Notis from '../components/Notis';
 
 interface FurnanceCarbonizationMnemoProps {
   url: string;
@@ -24,6 +25,7 @@ interface FurnanceCarbonizationMnemoProps {
 
 const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({ url, title, id }) => {
   const { loading, data } = useFetchData<FurnanceCarbonizationData>(url);
+  const { loading: notisLoading, data: notisData } = useFetchData<NotisData>(`notis${id}-data`);
   const furnaceMode = useFurnaceCarbonizationMode(data);
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true);
   const [isDocumentationModalOpen, setIsDocumentationModalOpen] = useState(false);
@@ -40,11 +42,11 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
     setIsDocumentationModalOpen(false);
   };
 
-  if (loading) {
+  if (loading || notisLoading) {
     return <Loader />;
   }
 
-  if (!data) {
+  if (!data || !notisData) {
     return <div>Ошибка загрузки данных</div>;
   }
 
@@ -66,6 +68,9 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
     ...data.levels,
     ...data.vacuums,
   };
+
+  // console.log(alarmData);
+
 
   return (
     <div>
@@ -108,6 +113,9 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
 
         {/*  модалка документации объектов  */}
         <DocumentationModal isOpen={isDocumentationModalOpen} onRequestClose={closeDocumentationModal} />
+
+        {/* Компонент NOTIS */}
+        <Notis notisData={notisData} id={id} />
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-//LevelIndicator.tsx
 import { useEffect, useState, useMemo } from 'react';
 
 interface LevelIndicatorProps {
@@ -15,11 +14,13 @@ export default function LevelIndicator({ value, range, threshold = 25 }: LevelIn
   const isValidLevel = !isNaN(value);
   const totalRange = range.max - range.min;
 
-  const fillPercentage = useMemo(() => {
+  // Нормализация значения уровня
+  const normalizedValue = useMemo(() => {
     if (!isValidLevel) return 0;
-    const raw = ((value - range.min) / totalRange) * 100;
-    return Math.min(Math.max(raw, 0), 100);
+    return ((value - range.min) / totalRange) * 100;
   }, [value, range, totalRange, isValidLevel]);
+
+  const fillPercentage = Math.min(Math.max(normalizedValue, 0), 100);
 
   useEffect(() => {
     if (isValidLevel && fillPercentage < threshold) {
