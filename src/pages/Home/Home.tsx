@@ -17,6 +17,8 @@ const Home: React.FC = () => {
     if (location.pathname.startsWith('/pc/2')) return 'pc/2';
     if (location.pathname.startsWith('/dryer/1')) return 'dryer/1';
     if (location.pathname.startsWith('/dryer/2')) return 'dryer/2';
+    if (location.pathname.startsWith('/mpa/2')) return 'mpa/2';
+    if (location.pathname.startsWith('/mpa/3')) return 'mpa/3';
     return 'pc/1'; // Default to PC1
   })();
 
@@ -39,8 +41,8 @@ const Home: React.FC = () => {
   return (
     <div className={`${styles['home']}`}>
       <div className={`${styles['home__container']}`}>
-        {/* Primary Tabs */}
 
+        {/* Primary Tabs */}
         <Tabs
           value={primaryTab}
           onChange={handlePrimaryChange}
@@ -52,7 +54,7 @@ const Home: React.FC = () => {
               color: 'green',
             },
             '& .MuiTabs-indicator': {
-              backgroundColor: 'green', // Цвет индикатора
+              backgroundColor: 'green',
             },
             '& .MuiTab-root.Mui-selected': {
               color: 'green',
@@ -63,6 +65,8 @@ const Home: React.FC = () => {
           <Tab label="ПК №2" value="pc/2" />
           <Tab label="Сушилка №1" value="dryer/1" />
           <Tab label="Сушилка №2" value="dryer/2" />
+          <Tab label="МПА №2" value="mpa/2" />
+          <Tab label="МПА №3" value="mpa/3" />
         </Tabs>
 
         <div className={`${styles['home__intro']}`}>
@@ -89,7 +93,7 @@ const Home: React.FC = () => {
           {/* Routes */}
           <AnimatePresence mode="wait">
             <motion.div
-              key={`${location.key}-${location.pathname}`} // Уникальный ключ
+              key={`${location.key}-${location.pathname}`} 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

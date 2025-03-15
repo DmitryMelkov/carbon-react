@@ -38,11 +38,11 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
   }
 
   return (
-    <div className={styles['dryer-current']}>
+    <>
       <TableHeader title={title} />
 
-      <div className={styles['tab-swiper']}>
-        <div className={styles['tab-swiper__box']}>
+      <div className={styles['dryer-swiper']}>
+        <div className={styles['dryer-swiper__box']}>
           <Swiper
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             modules={[Pagination, Navigation]}
@@ -50,24 +50,24 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
               clickable: true,
               dynamicBullets: true,
             }}
-            className={styles['tab-swiper__slider']}
+            className={styles['dryer-swiper__slider']}
             slidesPerView={2}
             slidesPerGroup={1}
             spaceBetween={30}
             allowTouchMove={false}
             onSlideChange={handleSlideChange}
           >
-            <SwiperSlide className={styles['tab-swiper__slider-slide']}>
+            <SwiperSlide className={styles['dryer-swiper__slider-slide']}>
               <TableComponent title="Температуры" data={data.temperatures || null} />
             </SwiperSlide>
-            <SwiperSlide className={styles['tab-swiper__slider-slide']}>
+            <SwiperSlide className={styles['dryer-swiper__slider-slide']}>
               <TableComponent title="Разрежения" data={data.vacuums || null} />
             </SwiperSlide>
-            <SwiperSlide className={styles['tab-swiper__slider-slide']}>
+            <SwiperSlide className={styles['dryer-swiper__slider-slide']}>
               <TableComponent title="Горелка" data={data.gorelka || null} />
             </SwiperSlide>
           </Swiper>
-          <div className={styles['tab-swiper__navigation']}>
+          <div className={styles['dryer-swiper__navigation']}>
             <BtnDefault
               onClick={() => swiperRef.current?.slidePrev()}
               icon={<FaChevronLeft />}
@@ -85,7 +85,7 @@ const DryerCurrent: React.FC<DryerCurrentProps> = ({ url, title }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
