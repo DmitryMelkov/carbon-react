@@ -10,6 +10,7 @@ import StaticItems from '../components/StaticItems';
 import styles from '../../Dryer/Mnemo/DryerMnemo.module.scss';
 import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
 import { MdVisibility } from 'react-icons/md';
+import KranItems from '../components/KranItems';
 
 interface DryerMnemoProps {
   url: string;
@@ -44,6 +45,8 @@ const DryerMnemo: React.FC<DryerMnemoProps> = ({ url, title, id }) => {
   // Получаем список параметров
   const params = getDryersParams(data, id);
 
+  console.log(params);
+
   return (
     <div>
       <TableHeader title={title} />
@@ -57,11 +60,15 @@ const DryerMnemo: React.FC<DryerMnemoProps> = ({ url, title, id }) => {
         </div>
         {/* Статические надписи */}
         <StaticItems />
+
         {/* Параметры */}
         <ParamList params={params} tooltipsEnabled={tooltipsEnabled} />
 
         {/* GIFS */}
         <MnemoGifs isGorelkaPowerGreaterThan5={isGorelkaPowerGreaterThan5} isTemperGasExhaust={isTemperGasExhaust} />
+
+        {/* Краны */}
+        <KranItems data={data.im || {}} />
       </div>
     </div>
   );

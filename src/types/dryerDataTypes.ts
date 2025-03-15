@@ -3,7 +3,7 @@ export interface Temperatures {
 }
 
 export interface Vacuums {
-  [key: string]: string;
+  [key: string]: number;
 }
 
 export interface Gorelka {
@@ -11,8 +11,7 @@ export interface Gorelka {
 }
 
 export interface Im {
-  "Индикация паротушения": boolean;
-  "Индикация сбрасыватель": boolean;
+  [key: string]: boolean | number;
 }
 
 export interface DryerData {

@@ -74,3 +74,34 @@ body::-webkit-scrollbar-thumb {
   opacity: 1 !important;
 }
 
+// .mnemo__param {
+//   padding: 2px;
+//   margin: 0;
+//   position: absolute;
+//   cursor: pointer;
+//   z-index: 1;
+//   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+//   box-shadow 0.3s ease-in-out;
+
+//   &.enabled-hover {
+//     &:hover {
+//       background-color: vars.$hulk;
+
+//       .mnemo__param-text {
+//         color: vars.$white;
+//       }
+//     }
+
+//     &:active {
+//       box-shadow: 0 0 0 3px vars.$white, 0 0 0 6px vars.$hulk;
+
+//       .mnemo__param-text {
+//         color: vars.$white;
+//       }
+//     }
+//   }
+// }
+
+// .mnemo__param-text {
+//   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+// }

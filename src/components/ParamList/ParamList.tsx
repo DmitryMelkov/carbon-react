@@ -1,6 +1,6 @@
 import React from 'react';
 import ParamIndicator from '../ParamIndicator/ParamIndicator';
-import styles from '../FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo.module.scss';
+import styles from '../../styles/Params.module.scss';
 import { getRecommendation } from '../../utils/getRecomendationParams';
 
 interface Param {

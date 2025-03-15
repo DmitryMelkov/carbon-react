@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tooltip } from '@mui/material';
-import styles from '../FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo.module.scss';
+import styles from '../../styles/Params.module.scss';
 import { checkParameter } from '../../utils/parameterCheck';
 import { Recommendation } from '../../types/recommendations';
 

@@ -27,7 +27,7 @@ export const getDryersParams = (data: DryerData, id: string): Param[] => {
     },
     {
       keyName: 'Разрежение в топке',
-      value: data.temperatures['Разрежение в топке'],
+      value: data.vacuums['Разрежение в топке'],
       unit: 'кг/см²',
       tooltipText: sushilkaTooltips.topkaDavl,
       className: 'topka-davl',
@@ -38,6 +38,34 @@ export const getDryersParams = (data: DryerData, id: string): Param[] => {
       unit: '%',
       tooltipText: 'нет информации',
       className: 'mosh-gorelky',
+    },
+    {
+      keyName: `Задание температуры №${id}`,
+      value: data.gorelka[`Задание температуры №${id}`],
+      unit: '°C',
+      tooltipText: 'нет информации',
+      className: 'zadanie-temper',
+    },
+    {
+      keyName: 'Разрежение воздуха на разбавление',
+      value: data.vacuums['Разрежение воздуха на разбавление'],
+      unit: 'кг/см²',
+      tooltipText: sushilkaTooltips.vosduhNaRazbavl,
+      className: 'vosduh-na-razbavl',
+    },
+    {
+      keyName: 'Разрежение в камере выгрузки',
+      value: data.vacuums['Разрежение в камере выгрузки'],
+      unit: 'кг/см²',
+      tooltipText: sushilkaTooltips.kameraVigruzki,
+      className: 'kamera-vigruzki',
+    },
+    {
+      keyName: 'Температура уходящих газов',
+      value: data.temperatures['Температура уходящих газов'],
+      unit: '°C',
+      tooltipText: sushilkaTooltips.temperUhodyashihGazov,
+      className: 'temper-uhodyashih-gazov',
     },
   ];
 };

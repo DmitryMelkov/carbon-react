@@ -1,0 +1,265 @@
+@use './mixins' as mixins;
+@use './variables' as vars;
+
+.mnemo__param {
+  padding: 1px;
+  background-color: white;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.3s ease-in-out;
+
+  &-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: green;
+    transition: color 0.3s ease-in-out;
+    @media (max-width: 1280px) {
+      &-text {
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+  }
+  &:hover {
+    background-color: vars.$hulk;
+    .mnemo__param-text {
+      color: vars.$white;
+    }
+  }
+
+  &.no-hover {
+    &:hover {
+      background-color: white;
+      cursor: auto;
+      .mnemo__param-text {
+        color: green;
+      }
+    }
+  }
+}
+
+.out-of-range {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    color: vars.$hulk;
+  }
+  50% {
+    color: vars.$red;
+  }
+}
+
+// мнемосхема furnanceCarbonization
+
+.first-skolz {
+  top: 64%;
+  left: 47.8%;
+}
+
+.second-skolz {
+  top: 64%;
+  left: 36%;
+}
+
+.third-skolz {
+  top: 64%;
+  left: 18.5%;
+}
+
+.temper-v-topke {
+  top: 66%;
+  right: 37.5%;
+  @media (max-width: 1280px) {
+    right: 39%;
+  }
+}
+
+.vverh-kamery-zagruzki {
+  left: 7.5%;
+  bottom: 37%;
+}
+
+.vniz-kamery-zagruzki {
+  left: 7.5%;
+  bottom: 46%;
+}
+
+.vhod-pechi-doziganiy {
+  left: 7.5%;
+  bottom: 56%;
+}
+
+.vyhod-pechi-doziganiy {
+  top: 29%;
+  left: 37%;
+}
+
+.temper-kamer-vygruz {
+  top: 80%;
+  right: 41.8%;
+}
+
+.gazy-kotla-utilizazi {
+  top: 34%;
+  left: 54.5%;
+  @media (max-width: 1280px) {
+    left: 54.1%;
+  }
+}
+
+.temper-gazov-do-scrubber {
+  top: 29%;
+  right: 30%;
+}
+
+.temper-gazov-posle-scrubber {
+  top: 36%;
+  right: 0;
+}
+
+.temper-vody-v-vanne-scrubber {
+  bottom: 10%;
+  right: 15%;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.granul-posle-holodil {
+  bottom: 22%;
+  left: 28%;
+}
+
+// Уровни
+.uroven-vanne-scrubber {
+  bottom: 10%;
+  right: 26%;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.uroven-vody-hvo {
+  bottom: 9%;
+  left: 39%;
+}
+
+.uroven-v-barabane-kotla {
+  top: 25.5%;
+  left: 54.5%;
+  @media (max-width: 1280px) {
+    top: 25%;
+    left: 54.1%;
+  }
+}
+
+// Давления
+.p-gazov-posle-scrubber {
+  bottom: 54%;
+  right: -3%;
+  @media (max-width: 1280px) {
+    bottom: 53%;
+    right: -4%;
+  }
+}
+
+.p-v-barabane-kotla {
+  top: 15%;
+  right: 30.7%;
+}
+
+// Разрежения
+.razr-v-topke {
+  top: 73%;
+  right: 38%;
+}
+
+.razr-v-prostranstve-kotla {
+  top: 31%;
+  left: 54.5%;
+  @media (max-width: 1280px) {
+    top: 30.3%;
+    left: 54.1%;
+  }
+}
+
+.razr-niz-zagr-kam {
+  left: 7.5%;
+  bottom: 28%;
+}
+
+// ИМ, горелка, нотис
+.im5-percent {
+  top: 12%;
+  left: 35.5%;
+}
+
+.mosh-gorelky {
+  top: 61%;
+  right: 38%;
+  @media (max-width: 1280px) {
+    top: 60.5%;
+    right: 39%;
+  }
+}
+
+.zadanie-temper-na-gorelky {
+  top: 69.5%;
+  right: 30%;
+}
+
+.doza-notis {
+  bottom: 9%;
+  left: 7%;
+}
+
+.im5-percent {
+  top: 12%;
+  left: 35.5%;
+}
+
+// ========================
+
+// мнемосзхема dryer
+.topka-temper {
+  top: 36.5%;
+  left: 6%;
+}
+
+.kamera-smeshenia {
+  top: 45%;
+  left: 20%;
+}
+
+.topka-davl {
+  top: 42%;
+  left: 6%;
+}
+
+.mosh-gorelki {
+  top: 18%;
+  left: 130px;
+}
+
+.zadanie-temper {
+  top: 26%;
+  left: 130px;
+}
+
+.vosduh-na-razbavl {
+  top: 65%;
+  left: 9.5%;
+}
+
+.kamera-vigruzki {
+  top: 45%;
+  right: 22.9%;
+}
+
+.temper-uhodyashih-gazov {
+  top: 12%;
+  right: 21%;
+}
+

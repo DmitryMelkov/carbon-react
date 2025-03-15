@@ -177,60 +177,6 @@
   left: 1%;
 }
 
-// position params
-.kamera-smeshenia {
-  top: 45%;
-  left: 20%;
-}
-
-// tooltip
-.kamera-smeshenia-clue {
-  width: 225px;
-  top: -102px;
-  left: -94px;
-}
-
-.topka-temper {
-  top: 36.5%;
-  left: 6%;
-}
-
-.topka-davl {
-  top: 42%;
-  left: 6%;
-}
-
-.mosh-gorelki {
-  top: 18%;
-  left: 130px;
-}
-
-.zadanie-temper {
-  top: 26%;
-  left: 130px;
-}
-
-.vosduh-na-razbavl {
-  top: 65%;
-  left: 9.5%;
-}
-
-.kamera-vigruzki {
-  top: 45%;
-  right: 22.9%;
-}
-
-.temper-uhodyashih-gazov {
-  top: 12%;
-  right: 21%;
-}
-
-.kran-1 {
-  position: absolute;
-  top: 7%;
-  left: 18%;
-  z-index: 1;
-}
 
 ::ng-deep .custom-tooltip {
   white-space: pre-line; /* Поддержка переносов строк */

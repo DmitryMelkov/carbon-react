@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../Mnemo/FurnanceCarbonizationMnemo.module.scss';
+import commonStyles from '../../../styles/Params.module.scss'
 import { NotisData } from '../../../types/furnanceCarbonizationTypes';
 
 interface NotisProps {
@@ -18,8 +19,8 @@ const Notis: React.FC<NotisProps> = ({ notisData, id }) => {
   return (
     <>
       {/* Отображение дозы NOTIS */}
-      <div className={`${styles['mnemo__param']} ${styles['doza-notis']}`}>
-        <span className={`${styles['mnemo__param-text']}`}>{notisDose} кг/ч</span>
+      <div className={`${commonStyles['mnemo__param']} ${commonStyles['doza-notis']}`}>
+        <span className={`${commonStyles['mnemo__param-text']}`}>{notisDose} кг/ч</span>
       </div>
 
       {/* Отображение статуса NOTIS */}
