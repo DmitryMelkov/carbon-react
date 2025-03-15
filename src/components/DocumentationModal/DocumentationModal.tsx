@@ -5,8 +5,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { MdExpandMore } from 'react-icons/md';
-import ModalHeader from '../../../../ui/ModalHeader/ModalHeader';
 import styles from './DocumentationModal.module.scss';
+import ModalHeader from '../../ui/ModalHeader/ModalHeader';
 
 interface DocumentationModalProps {
   isOpen: boolean;

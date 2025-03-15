@@ -18,3 +18,9 @@ export const sushilkaTooltips = {
   kameraVigruzki: 'Прибор: ПД-1Т\nДиапазон: 0...-200 Па\nГрадуировка: 4-20 мА',
   temperUhodyashihGazov: 'Прибор: Термопара (320мм)\nДиапазон: -40...+1000°C\nГрадуировка: ХА (К)',
 };
+
+export const furnanceActivationTooltips = {
+  tooltipTemper: 'Прибор: Термопара (1000мм)\nДиапазон: 0...+1300°C\nГрадуировка: ХА (К)',
+  tooltipDavlenie: 'Прибор: ПРОМА-ИДМ\nТоковый выход: 4-20 мА\n',
+  tooltipDB: 'Прибор: ПД-1.Т1\nДиапазон: 0...-250 Па\nТоковый выход: 4-20 мА',
+};

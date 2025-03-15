@@ -9,8 +9,9 @@ import MnemoGifs from '../components/MnemoGifs';
 import StaticItems from '../components/StaticItems';
 import styles from '../../Dryer/Mnemo/DryerMnemo.module.scss';
 import BtnDefault from '../../../ui/BtnDefault/BtnDefault';
-import { MdVisibility } from 'react-icons/md';
+import { MdMap, MdVisibility } from 'react-icons/md';
 import KranItems from '../components/KranItems';
+import DocumentationModal from '../../DocumentationModal/DocumentationModal';
 
 interface DryerMnemoProps {
   url: string;
@@ -21,9 +22,18 @@ interface DryerMnemoProps {
 const DryerMnemo: React.FC<DryerMnemoProps> = ({ url, title, id }) => {
   const { loading, data } = useFetchData<DryerData>(url);
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true);
+  const [isDocumentationModalOpen, setIsDocumentationModalOpen] = useState(false);
 
   const toggleTooltips = () => {
     setTooltipsEnabled((prev) => !prev);
+  };
+
+  const openDocumentationModal = () => {
+    setIsDocumentationModalOpen(true);
+  };
+
+  const closeDocumentationModal = () => {
+    setIsDocumentationModalOpen(false);
   };
 
   if (loading) {
@@ -45,7 +55,6 @@ const DryerMnemo: React.FC<DryerMnemoProps> = ({ url, title, id }) => {
   // Получаем список параметров
   const params = getDryersParams(data, id);
 
-
   return (
     <div>
       <TableHeader title={title} />
@@ -55,6 +64,13 @@ const DryerMnemo: React.FC<DryerMnemoProps> = ({ url, title, id }) => {
         <div className={`${styles['mnemo__param-box--btns']}`}>
           <BtnDefault onClick={toggleTooltips} icon={<MdVisibility />} className={styles['first-btn']}>
             {tooltipsEnabled ? 'Выкл. тултипы' : 'Вкл. тултипы'}
+          </BtnDefault>
+          <BtnDefault
+            className={`${styles['mnemo__param-box--btn-doc']}`}
+            icon={<MdMap />}
+            onClick={openDocumentationModal}
+          >
+            Документация объекта
           </BtnDefault>
         </div>
         {/* Статические надписи */}
@@ -68,6 +84,9 @@ const DryerMnemo: React.FC<DryerMnemoProps> = ({ url, title, id }) => {
 
         {/* Краны */}
         <KranItems data={data.im || {}} />
+
+        {/*  модалка документации объектов  */}
+        <DocumentationModal isOpen={isDocumentationModalOpen} onRequestClose={closeDocumentationModal} />
       </div>
     </div>
   );

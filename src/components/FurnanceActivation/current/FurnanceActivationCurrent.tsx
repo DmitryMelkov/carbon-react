@@ -57,7 +57,7 @@ const FurnanceActivationCurrent: React.FC<FurnanceActivationCurrentProps> = ({ u
 
       <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
         <TableComponent title="Текущие параметры (температура)" data={formattedTemperatures} />
-        <TableComponent title="Текущие параметры (разрежения/давления)" data={formattedPressures} />
+        <TableComponent title="Текущие параметры (разрежение/давление)" data={formattedPressures} />
       </div>
     </>
   );

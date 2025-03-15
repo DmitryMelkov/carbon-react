@@ -10,7 +10,7 @@ interface ParamIndicatorProps {
   unit: string;
   tooltipText?: string;
   tooltipsEnabled: boolean;
-  recommendation: Recommendation;
+  recommendation?: Recommendation;
   furnaceMode?: string;
 }
 
@@ -22,7 +22,11 @@ const ParamIndicator: React.FC<ParamIndicatorProps> = ({
   recommendation,
   furnaceMode,
 }) => {
-  const { isOutOfRange, recommendationText } = checkParameter(value || 0, recommendation, furnaceMode);
+  const { isOutOfRange, recommendationText } = checkParameter(
+    value || 0,
+    recommendation || {},
+    furnaceMode
+  );
 
   const fullTooltipText = `${tooltipText || ''}\n\nРекомендуемые значения:\n${recommendationText}`;
 

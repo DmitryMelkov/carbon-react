@@ -30,7 +30,7 @@ const KranItems: React.FC<KranItemsProps> = ({ data }) => {
       size: { width: 40, height: 32 },
       valueKey: 'Индикация паротушения',
       orientation: 'horizontal',
-      className: 'kran-1',
+      className: 'dryer-kran-1',
     },
   ];
 

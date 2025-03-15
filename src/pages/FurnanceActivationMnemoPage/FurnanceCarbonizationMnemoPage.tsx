@@ -15,7 +15,7 @@ const FurnanceActivationMnemoPage: React.FC = () => {
 
   return (
     <>
-      <FurnanceActivationMnemo url={url} title={title} />
+      <FurnanceActivationMnemo url={url} title={title} id={id}/>
     </>
   );
 };

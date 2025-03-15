@@ -13,9 +13,9 @@ import { MdMap, MdScience, MdVisibility } from 'react-icons/md';
 import { useFetchData } from '../../../hooks/useFetchData';
 import KranItems from '../components/KranItems';
 import AlarmTable from '../components/AlarmTable/Alarmtable';
-import DocumentationModal from '../components/DocumentationModal/DocumentationModal';
 import LevelItems from '../components/LevelItems';
 import Notis from '../components/Notis';
+import DocumentationModal from '../../DocumentationModal/DocumentationModal';
 
 interface FurnanceCarbonizationMnemoProps {
   url: string;
@@ -102,10 +102,13 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
 
         {/* Статические надписи */}
         <StaticItems />
+        
         {/* Параметры */}
         <ParamList params={params} tooltipsEnabled={tooltipsEnabled} />
+
         {/* горелка, вентиляторы, топка */}
         <MnemoGifs isGorelkaPowerGreaterThan5={isGorelkaPowerGreaterThan5} isVacuumNegative={isVacuumNegative} />
+
         {/* Краны */}
         <KranItems data={data.im || {}} />
         {/* Уровни */}
