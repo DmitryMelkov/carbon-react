@@ -45,7 +45,6 @@ const DryerMnemo: React.FC<DryerMnemoProps> = ({ url, title, id }) => {
   // Получаем список параметров
   const params = getDryersParams(data, id);
 
-  console.log(params);
 
   return (
     <div>

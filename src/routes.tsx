@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import FurnanceCarbonizationCurrentPage from './pages/FurnanceCarbonizationCurrentPage/FurnanceCarbonizationCurrentPage';
 import DryerCurrentPage from './pages/DryerCurrentPage/DryerCurrentPage';
 import FurnanceCarbonizationMnemoPage from './pages/FurnanceCarbonizationMnemoPage/FurnanceCarbonizationMnemoPage';
-import DryerMnemoPage from './pages/DryerCurrentPage copy/DryerMnemoPage';
+import DryerMnemoPage from './pages/DryerMnemoPage/DryerMnemoPage';
 
 const AppRoutes: React.FC = () => {
   return (
