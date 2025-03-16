@@ -6,6 +6,7 @@ import FurnanceCarbonizationMnemoPage from './pages/FurnanceCarbonizationMnemoPa
 import DryerMnemoPage from './pages/DryerMnemoPage/DryerMnemoPage';
 import FurnanceActivationCurrentPage from './pages/FurnanceActivationCurrentPage/FurnanceCarbonizationCurrentPage';
 import FurnanceActivationMnemoPage from './pages/FurnanceActivationMnemoPage/FurnanceCarbonizationMnemoPage';
+import MillsCurrentPage from './pages/MillsCurrentPage/MillsCurrentPage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/dryer/:id/mnemo" element={<DryerMnemoPage />} />
       <Route path="/mpa/:id/current" element={<FurnanceActivationCurrentPage />} />
       <Route path="/mpa/:id/mnemo" element={<FurnanceActivationMnemoPage />} />
+      <Route path="/mills/current" element={<MillsCurrentPage />} />
     </Routes>
   );
 };

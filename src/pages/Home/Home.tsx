@@ -19,6 +19,7 @@ const Home: React.FC = () => {
     if (location.pathname.startsWith('/dryer/2')) return 'dryer/2';
     if (location.pathname.startsWith('/mpa/2')) return 'mpa/2';
     if (location.pathname.startsWith('/mpa/3')) return 'mpa/3';
+    if (location.pathname.startsWith('/mills')) return 'mills';
     return 'pc/1'; // Default to PC1
   })();
 
@@ -67,6 +68,8 @@ const Home: React.FC = () => {
           <Tab label="Сушилка №2" value="dryer/2" />
           <Tab label="МПА №2" value="mpa/2" />
           <Tab label="МПА №3" value="mpa/3" />
+          <Tab label="Мельницы" value="mills" />
+
         </Tabs>
 
         <div className={`${styles['home__intro']}`}>
@@ -93,7 +96,7 @@ const Home: React.FC = () => {
           {/* Routes */}
           <AnimatePresence mode="wait">
             <motion.div
-              key={`${location.key}-${location.pathname}`} 
+              key={`${location.key}-${location.pathname}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
