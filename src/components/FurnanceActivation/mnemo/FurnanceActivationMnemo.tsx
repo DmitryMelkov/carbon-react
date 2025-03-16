@@ -50,7 +50,7 @@ const FurnanceActivationMnemo: React.FC<FurnanceActivationMnemoProps> = ({ url, 
     <>
       <TableHeader title={title} />
       <div className={`${styles['mnemo']}`}>
-        <img className={`${styles['mnemo__img']}`} src="/img/pech-mpa.jpg" alt="Sushilka" />
+        <img className={`${styles['mnemo__img']}`} src="/img/pech-mpa.jpg" alt="furnanceActivation" />
         <div className={`${styles['mnemo__param-box--btns']}`}>
           <BtnDefault onClick={toggleTooltips} icon={<MdVisibility />} className={styles['first-btn']}>
             {tooltipsEnabled ? 'Выкл. тултипы' : 'Вкл. тултипы'}

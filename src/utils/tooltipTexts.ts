@@ -24,3 +24,9 @@ export const furnanceActivationTooltips = {
   tooltipDavlenie: 'Прибор: ПРОМА-ИДМ\nТоковый выход: 4-20 мА\n',
   tooltipDB: 'Прибор: ПД-1.Т1\nДиапазон: 0...-250 Па\nТоковый выход: 4-20 мА',
 };
+
+export const reactorK296Tooltips = {
+  tooltipTemper: 'Прибор: ТСМ-50М\nДиапазон: -50...+180°C\nТоковый выход: 4-20 мА',
+
+  tooltipUroven: 'Прибор: Метран-55-ЛМК331\nДиапазон: 0...25 кПа\nТоковый выход: 4-20 мА',
+};

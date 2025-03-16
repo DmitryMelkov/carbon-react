@@ -20,6 +20,8 @@ const Home: React.FC = () => {
     if (location.pathname.startsWith('/mpa/2')) return 'mpa/2';
     if (location.pathname.startsWith('/mpa/3')) return 'mpa/3';
     if (location.pathname.startsWith('/mills')) return 'mills';
+    if (location.pathname.startsWith('/reactorK296')) return 'reactorK296';
+
     return 'pc/1'; // Default to PC1
   })();
 
@@ -69,7 +71,7 @@ const Home: React.FC = () => {
           <Tab label="МПА №2" value="mpa/2" />
           <Tab label="МПА №3" value="mpa/3" />
           <Tab label="Мельницы" value="mills" />
-
+          <Tab label="Смоляные реактора" value="reactorK296" />
         </Tabs>
 
         <div className={`${styles['home__intro']}`}>
