@@ -9,6 +9,7 @@ import FurnanceActivationMnemoPage from './pages/FurnanceActivationMnemoPage/Fur
 import MillsCurrentPage from './pages/MillsCurrentPage/MillsCurrentPage';
 import ReactorK296CurrentPage from './pages/ReactorK296CurrentPage/ReactorK296CurrentPage';
 import ReactorK296MnemoPage from './pages/ReactorK296MnemoPage/ReactorK296MnemoPage';
+import EnergyResourcesCurrentPage from './pages/EnergyResourcesCurrentPage/EnergyResourcesCurrentPage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -22,7 +23,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/mills/current" element={<MillsCurrentPage />} />
       <Route path="/reactorK296/current" element={<ReactorK296CurrentPage />} />
       <Route path="/reactorK296/mnemo" element={<ReactorK296MnemoPage />} />
-
+      <Route path="/energyResources/current" element={<EnergyResourcesCurrentPage />} />
 
     </Routes>
   );
