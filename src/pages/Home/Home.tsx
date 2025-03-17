@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Home.module.scss';
 import AppRoutes from '../../routes';
 import BtnDefault from '../../ui/BtnDefault/BtnDefault';
-import { MdConstruction, MdTune } from 'react-icons/md';
+import { MdConstruction, MdTune, MdBarChart } from 'react-icons/md';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Determine the active primary tab
+  // Определите активную основную вкладку
   const primaryTab = (() => {
     if (location.pathname.startsWith('/pc/1')) return 'pc/1';
     if (location.pathname.startsWith('/pc/2')) return 'pc/2';
@@ -22,21 +22,34 @@ const Home: React.FC = () => {
     if (location.pathname.startsWith('/mills')) return 'mills';
     if (location.pathname.startsWith('/reactorK296')) return 'reactorK296';
     if (location.pathname.startsWith('/energyResources')) return 'energyResources';
-    return 'pc/1'; // Default to PC1
+    return 'pc/1'; // По умолчанию ПК1
   })();
 
-  // Determine the active sub-tab
+  // Определите активную подвкладку
   const subTab = (() => {
     if (location.pathname.includes('mnemo')) return 'mnemo';
+    if (location.pathname.includes('chart-temper')) return 'chart-temper';
+    if (location.pathname.includes('chart-pressure')) return 'chart-pressure';
+    if (location.pathname.includes('chart-level')) return 'chart-level';
+    if (location.pathname.includes('chart-notis')) return 'chart-notis';
+    if (location.pathname.includes('chart-general')) return 'chart-general';
+    if (location.pathname.includes('chart-mill')) return 'chart-mill1';
+    if (location.pathname.includes('chart-mill')) return 'chart-mill2';
+    if (location.pathname.includes('chart-millsbm3')) return 'chart-millsbm3';
+    if (location.pathname.includes('chart-millygm9517')) return 'chart-millygm9517';
+    if (location.pathname.includes('chart-millycvok130')) return 'chart-millycvok130';
+    if (location.pathname.includes('chart-reactorK296')) return 'chart-reactorK296';
+    if (location.pathname.includes('chart-energyResources')) return 'chart-energyResources';
+
     return 'current';
   })();
 
-  // Handle primary tab change
+  // Обработка изменения основной вкладки
   const handlePrimaryChange = (_: React.SyntheticEvent, newValue: string) => {
     navigate(`/${newValue}/current`);
   };
 
-  // Handle sub-tab change
+  // Обработка изменения подвкладки
   const handleSubChange = (newValue: string) => {
     navigate(`/${primaryTab}/${newValue}`);
   };
@@ -44,8 +57,7 @@ const Home: React.FC = () => {
   return (
     <div className={`${styles['home']}`}>
       <div className={`${styles['home__container']}`}>
-
-        {/* Primary Tabs */}
+        {/* Основные вкладки */}
         <Tabs
           value={primaryTab}
           onChange={handlePrimaryChange}
@@ -73,11 +85,10 @@ const Home: React.FC = () => {
           <Tab label="Мельницы" value="mills" />
           <Tab label="Смоляные реактора" value="reactorK296" />
           <Tab label="Узлы учета" value="energyResources" />
-
         </Tabs>
 
         <div className={`${styles['home__intro']}`}>
-          {/* Sub-Tabs */}
+          {/* Подвкладки */}
           <div className={`${styles['home__sub-btns']}`}>
             <BtnDefault
               isActive={subTab === 'current'}
@@ -87,17 +98,191 @@ const Home: React.FC = () => {
             >
               Текущие параметры
             </BtnDefault>
-            <BtnDefault
-              isActive={subTab === 'mnemo'}
-              onClick={() => handleSubChange('mnemo')}
-              icon={<MdConstruction />}
-              iconSize="20px"
-            >
-              Мнемосхема
-            </BtnDefault>
+            {primaryTab.startsWith('dryer') && (
+              <>
+                <BtnDefault
+                  isActive={subTab === 'mnemo'}
+                  onClick={() => handleSubChange('mnemo')}
+                  icon={<MdConstruction />}
+                  iconSize="20px"
+                >
+                  Мнемосхема
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-temper'}
+                  onClick={() => handleSubChange('chart-temper')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики температур
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-pressure'}
+                  onClick={() => handleSubChange('chart-pressure')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики давления
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-general'}
+                  onClick={() => handleSubChange('chart-general')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Общие графики
+                </BtnDefault>
+              </>
+            )}
+            {primaryTab.startsWith('mpa') && (
+              <>
+                <BtnDefault
+                  isActive={subTab === 'mnemo'}
+                  onClick={() => handleSubChange('mnemo')}
+                  icon={<MdConstruction />}
+                  iconSize="20px"
+                >
+                  Мнемосхема
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-temper'}
+                  onClick={() => handleSubChange('chart-temper')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики температур
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-pressure'}
+                  onClick={() => handleSubChange('chart-pressure')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики давления
+                </BtnDefault>
+              </>
+            )}
+            {primaryTab.startsWith('pc') && (
+              <>
+                <BtnDefault
+                  isActive={subTab === 'mnemo'}
+                  onClick={() => handleSubChange('mnemo')}
+                  icon={<MdConstruction />}
+                  iconSize="20px"
+                >
+                  Мнемосхема
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-temper'}
+                  onClick={() => handleSubChange('chart-temper')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики температур
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-pressure'}
+                  onClick={() => handleSubChange('chart-pressure')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики давления
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-level'}
+                  onClick={() => handleSubChange('chart-level')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики уровня
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-notis'}
+                  onClick={() => handleSubChange('chart-notis')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики дозатора Нотис
+                </BtnDefault>
+              </>
+            )}
+            {primaryTab.startsWith('mills') && (
+              <>
+                <BtnDefault
+                  isActive={subTab === 'chart-mill1'}
+                  onClick={() => handleSubChange('chart-mill1')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики мельницы №1
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-mill2'}
+                  onClick={() => handleSubChange('chart-mill2')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики мельницы №2
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-millsbm3'}
+                  onClick={() => handleSubChange('chart-millsbm3')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики ШБМ №3
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-millygm9517'}
+                  onClick={() => handleSubChange('chart-millygm9517')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики YGM-9517
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-millycvok130'}
+                  onClick={() => handleSubChange('chart-millycvok130')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики YCVOK-130
+                </BtnDefault>
+              </>
+            )}
+            {primaryTab.startsWith('reactorK296') && (
+              <>
+                <BtnDefault
+                  isActive={subTab === 'mnemo'}
+                  onClick={() => handleSubChange('mnemo')}
+                  icon={<MdConstruction />}
+                  iconSize="20px"
+                >
+                  Мнемосхема
+                </BtnDefault>
+                <BtnDefault
+                  isActive={subTab === 'chart-reactorK296'}
+                  onClick={() => handleSubChange('chart-reactorK296')}
+                  icon={<MdBarChart />}
+                  iconSize="20px"
+                >
+                  Графики объекта
+                </BtnDefault>
+              </>
+            )}
+            {primaryTab.startsWith('energyResources') && (
+              <BtnDefault
+                isActive={subTab === 'chart-energyResources'}
+                onClick={() => handleSubChange('chart-energyResources')}
+                icon={<MdBarChart />}
+                iconSize="20px"
+              >
+                Графики объекта
+              </BtnDefault>
+            )}
           </div>
 
-          {/* Routes */}
+          {/* Маршруты */}
           <AnimatePresence mode="wait">
             <motion.div
               key={`${location.key}-${location.pathname}`}
