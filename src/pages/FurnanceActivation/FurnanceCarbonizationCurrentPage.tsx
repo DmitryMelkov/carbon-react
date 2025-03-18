@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import FurnanceActivationCurrent from '../../components/FurnanceActivation/current/FurnanceActivationCurrent';
+import FurnanceActivationCurrent from '../../components/FurnanceActivation/Current/FurnanceActivationCurrent';
 
 const FurnanceActivationCurrentPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

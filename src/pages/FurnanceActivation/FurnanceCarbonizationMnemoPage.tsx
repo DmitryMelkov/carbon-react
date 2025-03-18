@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import FurnanceActivationMnemo from '../../components/FurnanceActivation/mnemo/FurnanceActivationMnemo';
+import FurnanceActivationMnemo from '../../components/FurnanceActivation/Mnemo/FurnanceActivationMnemo';
 
 const FurnanceActivationMnemoPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

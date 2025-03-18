@@ -18,7 +18,6 @@ export const colors = [
 ];
 
 export const getChartOptions = (
-  startTime: number,
   endTime: number,
   title: string,
   isAutoScroll: boolean,
@@ -113,13 +112,13 @@ export const getChartOptions = (
         displayFormats: { minute: 'HH:mm' },
       },
       ticks: {
-        source: 'auto', 
+        source: 'auto',
         autoSkip: false,
         maxTicksLimit: 20,
-        sampleSize: 10, 
+        sampleSize: 10,
       },
       grid: {
-        display: true, 
+        display: true,
       }
     },
     y: {

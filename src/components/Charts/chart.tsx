@@ -19,7 +19,7 @@ import { handleBackward, handleForward, handleReturnToCurrent, createDataWithGap
 import { useInterval } from './context/intervalContext';
 import Loader from '../../ui/loader/Loader';
 import { useData } from './hooks/useData';
-import IntervalSelector from './intervalSelector';
+import IntervalSelector from './IntervalSelector';
 
 ChartJS.register(
   LineElement,
