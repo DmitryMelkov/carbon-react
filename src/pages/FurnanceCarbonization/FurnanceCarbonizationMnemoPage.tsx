@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import FurnanceCarbonizationMnemo from '../../components/FurnanceCarbonization/mnemo/FurnanceCarbonizationMnemo';
+import FurnanceCarbonizationMnemo from '../../components/FurnanceCarbonization/Mnemo/FurnanceCarbonizationMnemo';
 
 const FurnanceCarbonizationMnemoPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

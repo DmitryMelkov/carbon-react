@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import FurnanceCarbonizationCurrent from '../../components/FurnanceCarbonization/current/FurnanceCarbonizationCurrent';
+import FurnanceCarbonizationCurrent from '../../components/FurnanceCarbonization/Current/FurnanceCarbonizationCurrent';
 
 const FurnanceCarbonizationCurrentPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

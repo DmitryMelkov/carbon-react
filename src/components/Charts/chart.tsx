@@ -112,14 +112,21 @@ const UniversalChart: React.FC<UniversalChartProps> = ({
   }, [interval, timeOffset, timeDifference, getAdjustedTime]);
 
   const processedData = useMemo(() => {
-    return datasets.map((dataset, index) => ({
-      data:
-        data[index]?.map((item: GenericData) => ({
-          time: new Date(item.lastUpdated),
-          values: item[dataset.dataKey] || {},
-        })) || [],
-      params: dataset.params,
-    }));
+
+    return datasets.map((dataset, index) => {
+      const datasetData =
+        data[index]?.map((item: GenericData) => {
+          return {
+            time: new Date(item.lastUpdated),
+            values: item[dataset.dataKey] || {},
+          };
+        }) || [];
+
+      return {
+        data: datasetData,
+        params: dataset.params,
+      };
+    });
   }, [data, datasets]);
 
   const chartData = useMemo(() => {
@@ -261,7 +268,7 @@ const UniversalChart: React.FC<UniversalChartProps> = ({
                 ...options.plugins,
                 legend: {
                   ...options.plugins?.legend,
-                  onClick: (e, legendItem) => {
+                  onClick: (_, legendItem) => {
                     if (legendItem.datasetIndex !== undefined) {
                       handleToggleDataset(legendItem.datasetIndex);
                     }

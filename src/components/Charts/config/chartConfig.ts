@@ -18,6 +18,7 @@ export const colors = [
 ];
 
 export const getChartOptions = (
+  startTime: number, 
   endTime: number,
   title: string,
   isAutoScroll: boolean,
@@ -106,7 +107,8 @@ export const getChartOptions = (
   scales: {
     x: {
       type: 'time',
-      max: isAutoScroll ? endTime + 30 * 1000 : endTime,
+      min: startTime, // Используем startTime
+      max: isAutoScroll ? endTime + 30 * 1000 : endTime, // Используем endTime
       time: {
         unit: 'minute',
         displayFormats: { minute: 'HH:mm' },
@@ -119,7 +121,7 @@ export const getChartOptions = (
       },
       grid: {
         display: true,
-      }
+      },
     },
     y: {
       beginAtZero: yMin === undefined,
