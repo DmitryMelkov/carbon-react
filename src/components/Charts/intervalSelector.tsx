@@ -37,7 +37,7 @@ const IntervalSelector: React.FC = () => {
       <Select
         options={options}
         onChange={handleIntervalChange}
-        defaultValue={options[3]}
+        defaultValue={options[1]}
         classNamePrefix="react-select"
         isSearchable={false}
         onMenuOpen={handleMenuOpen} // Обработчик открытия меню

@@ -1,7 +1,6 @@
 import React from 'react';
 import { IntervalProvider } from '../../../components/Charts/context/intervalContext';
-import UniversalChart from '../../../components/Charts/chart';
-
+import UniversalChart from '../../../components/Charts/Chart';
 
 const MillYCVOK130: React.FC = () => {
   const url = 'http://localhost:3002/api/mill10b/data'; // Формируем URL на основе id

@@ -16,10 +16,10 @@ import 'chartjs-adapter-date-fns';
 import CrosshairPlugin from 'chartjs-plugin-crosshair';
 import { getChartOptions, colors } from './config/chartConfig';
 import { handleBackward, handleForward, handleReturnToCurrent, createDataWithGaps } from './utils/chartUtils';
-import IntervalSelector from './intervalSelector';
 import { useInterval } from './context/intervalContext';
 import Loader from '../../ui/loader/Loader';
 import { useData } from './hooks/useData';
+import IntervalSelector from './intervalSelector';
 
 ChartJS.register(
   LineElement,

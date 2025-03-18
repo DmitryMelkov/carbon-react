@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntervalProvider } from '../../../components/Charts/context/intervalContext';
-import UniversalChart from '../../../components/Charts/chart';
+import UniversalChart from '../../../components/Charts/Chart';
 import { useParams } from 'react-router-dom';
 
 const FurnanceCarbonizationPressure: React.FC = () => {

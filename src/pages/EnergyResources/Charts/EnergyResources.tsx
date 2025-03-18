@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntervalProvider } from '../../../components/Charts/context/intervalContext';
-import UniversalChart from '../../../components/Charts/chart';
+import UniversalChart from '../../../components/Charts/Chart';
 
 const EnergyResources: React.FC = () => {
   const dd093Url = 'http://localhost:3002/api/de093/data';
@@ -10,8 +10,6 @@ const EnergyResources: React.FC = () => {
   // const dd569Url = 'http://localhost:3002/api/de569/data';
   // const dd923Url = 'http://localhost:3002/api/de923/data';
   // const dd924Url = 'http://localhost:3002/api/de924/data';
-
-
 
   return (
     <IntervalProvider>
@@ -191,12 +189,7 @@ const EnergyResources: React.FC = () => {
           showIntervalSelector={true}
         />
       </IntervalProvider>
-
     </IntervalProvider>
-
-
-
-
   );
 };
 

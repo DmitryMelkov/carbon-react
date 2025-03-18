@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntervalProvider } from '../../../components/Charts/context/intervalContext';
-import UniversalChart from '../../../components/Charts/chart';
+import UniversalChart from '../../../components/Charts/Chart';
 
 const ReactorK296: React.FC = () => {
   const url = 'http://localhost:3002/api/reactor296/data';

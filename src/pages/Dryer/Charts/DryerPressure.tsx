@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntervalProvider } from '../../../components/Charts/context/intervalContext';
-import UniversalChart from '../../../components/Charts/chart';
+import UniversalChart from '../../../components/Charts/Chart';
 import { useParams } from 'react-router-dom';
 
 const DryerPressure: React.FC = () => {
@@ -9,7 +9,7 @@ const DryerPressure: React.FC = () => {
   const title = `Сушилка №${id}`;
   return (
     <div>
-     <IntervalProvider>
+      <IntervalProvider>
         <UniversalChart
           id={`Dryer pressure №${id}`} // Динамический ID на основе номера котла
           title={`График ${title}`} // Динамический заголовок
