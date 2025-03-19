@@ -1,0 +1,24 @@
+.form {
+  &__lab {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  &__inputs {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  &__error-global {
+    margin-top: 2px;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    color: red;
+    font-size: 14px;
+  }
+}

@@ -74,6 +74,14 @@
       }
     }
   }
+
+  &__lab-table {
+    max-width: 385px;
+    position: absolute;
+    top: 22.9%;
+    left: 7.4%;
+    z-index: 2;
+  }
 }
 
 @keyframes rotate {

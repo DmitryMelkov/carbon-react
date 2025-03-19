@@ -16,6 +16,8 @@ import AlarmTable from '../components/AlarmTable/Alarmtable';
 import LevelItems from '../components/LevelItems';
 import Notis from '../components/Notis';
 import DocumentationModal from '../../DocumentationModal/DocumentationModal';
+import CurrentLab from '../components/Laboratory/CurrentLab/CurrentLab';
+import ModalLab from '../components/Laboratory/ModalLab/ModalLab';
 
 interface FurnanceCarbonizationMnemoProps {
   url: string;
@@ -29,6 +31,7 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
   const furnaceMode = useFurnaceCarbonizationMode(data);
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true);
   const [isDocumentationModalOpen, setIsDocumentationModalOpen] = useState(false);
+  const [openLabModal, setOpenLabModal] = useState(false);
 
   const toggleTooltips = () => {
     setTooltipsEnabled((prev) => !prev);
@@ -89,7 +92,7 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
           <BtnDefault onClick={toggleTooltips} icon={<MdVisibility />} className={styles['first-btn']}>
             {tooltipsEnabled ? 'Выкл. тултипы' : 'Вкл. тултипы'}
           </BtnDefault>
-          <BtnDefault icon={<MdScience />}>Для лаборатории</BtnDefault>
+          <BtnDefault onClick={() => setOpenLabModal(true)} icon={<MdScience />}>Для лаборатории</BtnDefault>
         </div>
         {/* кнопка документация */}
         <BtnDefault
@@ -102,7 +105,7 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
 
         {/* Статические надписи */}
         <StaticItems />
-        
+
         {/* Параметры */}
         <ParamList params={params} tooltipsEnabled={tooltipsEnabled} />
 
@@ -119,6 +122,12 @@ const FurnanceCarbonizationMnemo: React.FC<FurnanceCarbonizationMnemoProps> = ({
 
         {/* Компонент NOTIS */}
         <Notis notisData={notisData} id={id} />
+
+        <div className={`${styles['mnemo__lab-table']}`}>
+          <CurrentLab url={id} />
+        </div>
+
+        <ModalLab open={openLabModal} onClose={() => setOpenLabModal(false)} url={id} />
       </div>
     </>
   );
